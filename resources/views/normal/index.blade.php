@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <h1 class="page-title">書籍一覧あいうえお</h1>
+  <h1 class="page-title">書籍一覧</h1>
 
   <div class="book-list">
     <div class="book-row">
