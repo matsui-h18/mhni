@@ -19,9 +19,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'emp_id',
         'password',
+        'emp_name',
+        'dep_id',
     ];
 
     /**
@@ -49,5 +50,15 @@ class User extends Authenticatable
 
         public function comments(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function username()
+    {
+        return 'emp_id';
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'emp_id';
     }
 }
