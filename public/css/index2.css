@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+/* 書籍表示テーブル */
+.book-table {
+  border-collapse: collapse;
+  width: 600px;
+  max-width: 600px;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.book-table td,
+.book-table th {
+  border: 1px solid black;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.book-table td:first-child {
+  width: 120px; /* 画像用幅 */
+}
+
+/* ボタン共通 */
+.btn {
+  width: 80px;
+  height: 40px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #9ACD32; /* 黄緑 */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #7BAF1F;
+}
+
+/* 入力フィールド */
+.field-label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.field-input {
+  width: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* 画像表示 */
+.image-display {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* 入力欄とボタンを横並び */
+.input-button-wrapper {
+  display: flex;
+  flex-direction: row; /* 横並び */
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ボタンエリア（縦並びで右側に配置） */
+.button-area {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  gap: 8px;
+  margin-left: 8px; /* 入力欄との隙間 */
+}
+
+/* 区切り線 */
+hr {
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid #000;
+  margin: 20px 0;
+}

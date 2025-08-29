@@ -1,0 +1,87 @@
+@charset "utf-8";
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+  background-color: #f4f4f9;
+}
+
+/* タイトル */
+.page-title {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* 全体リスト */
+.book-list {
+  width: 850px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* 各行 */
+.book-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 18px;
+}
+
+.book-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.book-row:hover {
+  background-color: #eaf4ff;
+}
+
+/* 左カラム（画像） */
+.book-image {
+  width: 150px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* 画像（固定サイズ） */
+.image-display {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background-color: #eee;
+}
+
+/* 右カラム（本の情報） */
+.book-info {
+  padding-left: 20px;
+  flex-grow: 1;
+  height: 200px;          /* 画像と同じ高さに固定 */
+  display: flex;          /* フレックスボックスにする */
+  align-items: center;    /* ← 文字を縦中央に配置 */
+  text-align: left;
+}
+
+/* タイトルリンク */
+.book-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.book-title:hover {
+  color: #004499;
+  text-decoration: underline;
+}
+
+
+
