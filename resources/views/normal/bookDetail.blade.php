@@ -18,8 +18,6 @@
         本の内容content<br>
         出版日pub_date<br>
         おすすめ度の平均 evaluation
-        あいうえお
-        かきくけこ
     </div>
 </div>
 
