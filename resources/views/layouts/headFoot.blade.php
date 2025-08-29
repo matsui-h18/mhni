@@ -36,7 +36,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </div>
             <div class="navbar-nav">
-              <a class="nav-link" href="#">Logoutあいうえお</a>
+              <a class="nav-link" href="#">Logout</a>
             </div>
           </div>
         </div>
