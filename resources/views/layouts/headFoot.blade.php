@@ -9,8 +9,9 @@
 
         /* 中身用のcss */
         .center{
-            width:1200px;
+            width:1500px;
             margin: 0 auto;
+            font-family:  'メイリオ','arial black';
         }
 
         /* ヘッダー：「ログアウト」の文字サイズ */
@@ -23,11 +24,32 @@
         .navbar-nav{
             font-size: 25px;
         }
+
+        /* BookMHNIのロゴ */
+        #logo{
+            margin-top:50px;
+            text-align: center;
+            font-family:  serif,'arial black'; /* フォント変更する場合ここ */
+        }
+
+        /* BookMHNIのロゴ下の「書籍管理システム」 */
+        #sub_logo{
+            margin-bottom:50px;
+            font-size:20px;
+            text-align: center;
+            font-family:  serif,'arial black'; /* フォント変更する場合ここ */
+        }
+
+        button{
+          background-color:#c1e4e9;
+        }
+
     </style>
 </head>
 <body>
   <div class="center">
-    <img src="" alt="BookMHNI" id="title">
+    <h1 id="logo">BookMHNI</h1>
+        <div id="sub_logo">－書籍管理システム－</div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -36,7 +58,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </div>
             <div class="navbar-nav">
-              <a class="nav-link" href="#">Logoutあいうえお</a>
+              <a class="nav-link" href="#">Logout</a>
             </div>
           </div>
         </div>

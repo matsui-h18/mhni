@@ -1,6 +1,14 @@
 @charset "utf-8";
+
+body{
+    
+}
+
 .book-display {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* 画像とテキストの間に余白を入れる */
+    margin: 0 auto;
+    /* gap: 20px; 画像とテキストの間に余白を入れる */
 }
+
+
