@@ -59,3 +59,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+1. Node.js をインストール
+2. プロジェクトルートで以下を実行：
+   ```bash
+   npm install
+   npm run dev
+   (npm run build) 開発完了後
+3. Laravel の起動
+   php artisan serve

@@ -24,8 +24,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $general = '/general';
-        $support = '/support';
 
         $request->authenticate();
 
@@ -33,11 +31,11 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
 
-        $redirectTo = $user->dep_id === 2 ? $support : $general;
+        $redirectTo = $user->dep_id === 2 ? '/support' : '/general';
 
         session(['after_login_url' => $redirectTo]);
 
-        return redirect($redirectTo);
+        return redirect()->route($user->dep_id === 2 ? 'support' : 'dashboard');
     }
 
     /**

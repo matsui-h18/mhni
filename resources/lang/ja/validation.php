@@ -262,5 +262,9 @@ return [
         'username' => 'ユーザー名',
         'year' => '年',
     ],
+    'unique' => 'その :attribute は既に存在しています。',
+    'attributes' => [
+        'emp_id' => '社員番号',
+    ],
 
 ];

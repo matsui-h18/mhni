@@ -32,6 +32,12 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
+            <div class="mt-6 text-center">
+                <a href="{{ route('user.add.login') }}" class="text-sm text-indigo-600 hover:underline">
+                    ユーザー追加用ログインはこちら
+                </a>
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button class="ms-3">
                     {{ __('Log in') }}

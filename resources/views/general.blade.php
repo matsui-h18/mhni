@@ -1,5 +1,12 @@
-<x-app-layout>
-    <h1>一般ユーザー向けページ</h1><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>一般ユーザー向けページ</h1><br>
     <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="text-red-600 hover:underline">
@@ -13,4 +20,7 @@
         Topページに戻る
     </button>
 </form>
-</x-app-layout>
+</body>
+</html>
+
+
