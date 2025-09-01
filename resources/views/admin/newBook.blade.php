@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>本の新規登録</title>
+    <link rel="stylesheet" href="css/newBook.css">
 </head>
 <body>
     <h1>本の新規登録画面</h1>
+    <hr/>
 
-    <form method="POST" action="/book/store">
+    <form  action="/admin/newBookComplete" method="POST" >
         @csrf
 
         <div>
@@ -34,7 +36,7 @@
         </div>
         <br>
 
-        <button type="submit">登録</button>
+        <input type="submit"id="button"value="登録">
     </form>
 </body>
 </html>

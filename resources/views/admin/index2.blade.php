@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>書籍登録</title>
-<link rel="stylesheet" href="css/index2.css">
+<link rel="stylesheet" href="{{ asset('css/index2.css') }}">
 </head>
 <body>
 <h2>書籍新規登録</h2>
 <hr>
 
-<button class="btn">新規登録</button>
+<a href="{{ route('newBook') }}"><button class="btn">新規登録</button></a>
 
 <table class="book-table">
     <tr>
@@ -17,15 +17,17 @@
       <img src="https://via.placeholder.com/100x120.png?text=Book" alt="本の画像" class="image-display">
     </td>
     <td>
-      <label for="title" class="field-label">タイトル：</label>
+      @foreach ($books as $book)
+      <label for="title" class="field-label">{{$book->book_name}}</label>
       <div class="input-button-wrapper">
-      <input type="text" id="title" value="吾輩は猫である" class="field-input">
+      <input type="text" id="title" value="" class="field-input">
 
-     <!--<label for="author" class="field-label">著作者：</label>
-      <input type="text" id="author" value="夏目漱石" class="field-input">
+     <label for="author" class="field-label">{{$book->author}}</label>
+      <input type="text" id="author" value="" class="field-input">
 
-      <label for="year" class="field-label">出版年：</label>
-      <input type="number" id="year" value="1905" class="field-input">-->
+      <label for="year" class="field-label">{{$book->pub_date}}</label>
+      <input type="number" id="year" value="" class="field-input">
+      @endforeach
 
       <div class="button-area">
         <button class="btn">編集</button>
