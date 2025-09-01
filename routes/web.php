@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccController;
+use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-    return view('normal.bookDetail');
+    return view('test-login');
 });
 Route::get('/3', function () {
     return view('admin.newBookComplete');
@@ -32,5 +34,25 @@ Route::post('/admin/newBookComplete', [AccController::class,'store'] ) ;
 
 // こっちだけ残す！
 Route::get('/admin/index2', [AccController::class,'allshow'])->name('admin.index2');
+
+
+
+
+// 中島
+Route::get('/admin/index2', [AccController::class, 'allshow'])
+->middleware(['auth'])->name('support');
+
+Route::get('/normal/index', [LibraryController::class,'index'])
+->middleware(['auth'])->name('dashboard');
+
+// Route::get('/book/{id}',[::class,'show'])
+// => name('book.show');
+
+
+
+// テスト用
+Route::get('/test-login', [TestLoginController::class, 'show'])->name('test.login.form');
+Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.login');
+
 
 
