@@ -9,6 +9,10 @@ use App\Http\Controllers\NormalDbController;
 Route::get('/', function () {
     return view('test-login');
 });
+
+Route::post('/normal/delete',[NormalDbController::class,'deleteCheck']);
+Route::post('/normal/deleteComplete',[NormalDbController::class,'deleteComment']);
+
 Route::get('/3', function () {
     return view('admin.newBookComplete');
 });
