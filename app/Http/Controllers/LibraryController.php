@@ -16,6 +16,10 @@ class LibraryController extends Controller
         return view('normal.index', $data);
     }
 
+    public function search(){
+        return view('admin.isbn');
+    }
+
     public function show($id)
     {
         $book = Book::findOrFail($id);

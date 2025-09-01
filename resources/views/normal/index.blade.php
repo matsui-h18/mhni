@@ -27,7 +27,7 @@
     </div>
     @endforeach
 
-        <div class="book-list">
+        <!-- <div class="book-list">
             <div class="book-row">
                 <div class="book-image">
                     <img src="book1.jpg" alt="本1" class="image-display">
@@ -55,7 +55,7 @@
                     <a href="book3.html" class="book-title">人間失格</a>
                 </div>
             </div>
-        </div>
+        </div> -->
 </body>
 
 </html>

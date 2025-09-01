@@ -26,43 +26,42 @@ class NormalDbController extends Controller
         }
     }
     public function deleteCheck(Request $request)
-        {
-            if($req ->isMethod('post')){
-            $id=$req->id;
-           $data=[
-            'record'=> Comment::find($id)
-           ];
-           return view('normal.commentDelete',$data);
-        }else{
+    {
+        if ($req->isMethod('post')) {
+            $id = $req->id;
+            $data = [
+                'record' => Comment::find($id)
+            ];
+            return view('normal.commentDelete', $data);
+        } else {
             redirect('normal/bookDetail');
         }
-        }
+    }
 
     public function edit(Request $request)
     {
-    $commentId = $request->input('comment_id');
-    // 編集画面へリダイレクト or 編集処理
+        $commentId = $request->input('comment_id');
+        // 編集画面へリダイレクト or 編集処理
 
-    if($request ->isMethod('post')){
-            $id=$request->id;
-           $data=[
-            'record'=> Comment::find($id)
-           ];
-           return view('normal.commentDelete',$data);
-        }else{
+        if ($request->isMethod('post')) {
+            $id = $request->id;
+            $data = [
+                'record' => Comment::find($id)
+            ];
+            return view('normal.commentDelete', $data);
+        } else {
             redirect('normal/bookDetail');
         }
-
     }
 
     public function delete(Request $request)
-    {   
-    $commentId = $request->input('comment_id');
-    // 削除処理
+    {
+        $commentId = $request->input('comment_id');
+        // 削除処理
     }
 
 
-    
+
     //public function editComment(Request $request)
     // {
     //     $commentId = $request->input('comment_id');
@@ -88,8 +87,8 @@ class NormalDbController extends Controller
 
     //public function showBookDetail()
     //{
-        // $book = Book::findOrFail(1); // id=1 の本
-        // return view('bookDetail', ['book' => $book]);
+    // $book = Book::findOrFail(1); // id=1 の本
+    // return view('bookDetail', ['book' => $book]);
     //}
 
     //     public function showComment()

@@ -14,11 +14,13 @@
     <p>著者: {{ implode(', ', $author) }}</p>
     <p>出版日: {{ $pub_date }}</p>
     <p>説明: {{ $content }}</p>
+    <br>
     @if($image)
     <img src="{{ $image }}" alt="本の画像">
     @else
     <p>サムネイル画像はありません。</p>
     @endif
+    <br><br>
     <form method="POST" action="{{ route('isbnadd') }}">
         @csrf
         <input type="hidden" name="book_name" value="{{ $book_name }}">
@@ -30,8 +32,9 @@
 
         <button type="submit">追加</button>
     </form>
+    <br><br>
 
-    <a href="">戻る</a>
+    <a href="/isbn">戻る</a>
 </body>
 
 </html>

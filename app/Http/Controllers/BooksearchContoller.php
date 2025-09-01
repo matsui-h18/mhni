@@ -45,14 +45,14 @@ class BooksearchContoller extends Controller
     {
         // タイトルが「不明」の場合は登録しない
         if ($request->book_name === '不明') {
-            return redirect()->route('admin.isbnsearch')->with('error', 'タイトルが不明の書籍は登録できません');
+            return redirect()->route('isbn')->with('error', 'タイトルが不明の書籍は登録できません');
         }
 
         // ISBNで重複チェック
         $exists = \App\Models\Book::where('isbn', $request->isbn)->exists();
 
         if ($exists) {
-            return redirect()->route('admin.isbnsearch')->with('message', 'このISBNの書籍はすでに登録されています');
+            return redirect()->route('isbn')->with('message', 'このISBNの書籍はすでに登録されています');
         }
 
         // 登録処理
@@ -65,6 +65,6 @@ class BooksearchContoller extends Controller
             'image' => $request->image,
         ]);
 
-        return redirect()->route('')->with('message', '書籍を登録しました');
+        return redirect()->route('/isbn')->with('message', '書籍を登録しました');
     }
 }
