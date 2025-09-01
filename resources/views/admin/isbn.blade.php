@@ -11,7 +11,7 @@
     <h1>ISBN入力</h1>
     <form action="{{ route('isbnsearch') }}" method="post">
         @csrf
-        ISBN<input type="number" name="isbn" id="isbn-input" value=""><br><br>
+        ISBN<input type="text" name="isbn" id="isbn-input" pattern="\d+" inputmode="numeric"><br><br>
         <input type="submit" value="確認">
     </form>
     <script>
