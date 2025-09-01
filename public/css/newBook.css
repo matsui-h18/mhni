@@ -1,12 +1,32 @@
 @charset "utf-8";
-button{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
 
+form {
+    max-width: 600px;
+    height:500px;
+    margin: 0 auto; /* 横方向の中央揃え */
+    margin-top: 60px;
+    margin-bottom: 100px;
 }
-button.p{
-    border: solid 1px black;
-    padding: 5px;
-    margin: 20px;
+
+h1 {
+  text-align: center;
+  margin-top: 80px;
+}
+
+p{
+    text-align: center;
+    font-size: 20px;
+}
+
+#button {
+  display: block;
+  margin: 80px auto 0;
+}
+
+.new-book-btn {
+  font-size: 20px;       /* 文字サイズを大きく */
+  padding: 12px 24px;    /* 上下・左右の余白を広く */
+  width: 200px;          /* ボタンの横幅を指定（任意） */
+  height: 60px;          /* ボタンの高さを指定（任意） */
+  margin-top: 50px;      /* 上に余白 */
 }
