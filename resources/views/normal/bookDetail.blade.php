@@ -111,13 +111,13 @@
         <a href="{{ route('commentDelete') }}" id="del_btn">削除</a>
     </div> --}}
 
-    <div class="edit_del_btn" style="display: flex; gap: 10px;">
-        <!-- 編集ボタン -->
-        <form action="/normal/commentEdit" method="post">
-            @csrf
-            {{-- <input type="hidden" name="comment_id" value="{{ $comment->id }}"> --}}
-            <input type="submit" value="編集" class="btn btn-warning">
-        </form>
+<div class="edit_del_btn" style="display: flex; gap: 10px;">
+    <!-- 編集ボタン -->
+    <form action="/normal/commentEdit" method="post">
+        @csrf
+        <input type="hidden" name="comment_id" value="{{ $comment->id }}"> 
+        <input type="submit" value="編集" class="btn btn-warning">
+    </form>
 
         <!-- 削除ボタン -->
         <form action="/normal/commentDelete" method="post">

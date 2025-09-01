@@ -33,6 +33,14 @@ class AccController extends Controller
         return view('admin.index2',$data);
     }
 
+    // // 本の情報編集用
+    // public function edit(Request $req){
+    //     $id=$req->id;
+    //     $data = [
+    //         // 押された
+    //     ]
+    //     return view('')
+    // }
     // 本の情報編集用
     public function edit(Request $req){
         $id=$req->id;
