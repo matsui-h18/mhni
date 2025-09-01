@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/index2.css') }}">
 
 <div id="new_btn">
-  <a href="{{ route('newBook') }}"><button class="btn btn-primary">新規登録</button></a>
+  <a href="{{ route('newBook') }}"><button class="btn btn-primary new-book-btn">新規登録</button></a>
 </div>
 
 @foreach ($books as $book)
@@ -21,8 +21,8 @@
 
     <!-- 右側：ボタン -->
     <div class="button-area">
-      <button class="btn btn-primary">編集</button>
-      <button class="btn btn-primary">削除</button>
+      <button class="btn btn-primary edit-btn" >編集</button>
+      <button class="btn btn-primary del-btn">削除</button>
     </div>
   </div>
 @endforeach
