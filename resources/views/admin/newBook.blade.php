@@ -9,7 +9,7 @@
     <h1>本の新規登録画面</h1>
     <hr/>
 
-    <form method="POST" action="/book/store">
+    <form  action="/admin/newBookComplete" method="POST" >
         @csrf
 
         <div>
@@ -36,7 +36,7 @@
         </div>
         <br>
 
-        <button type="submit"id="button">登録</button>
+        <input type="submit"id="button"value="登録">
     </form>
 </body>
 </html>
