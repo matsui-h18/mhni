@@ -11,6 +11,11 @@ Route::get('/', function () {
 Route::post('/normal/delete',[NormalDbController::class,'deleteCheck']);
 Route::post('/normal/deleteComplete',[NormalDbController::class,'deleteComment']);
 
+Route::post('/normal/commentEdit', [NormalDbController::class, 'edit'])->name('commentEdit');
+Route::post('/normal/commentDelete', [NormalDbController::class, 'delete'])->name('commentDelete');
+
+
+
 Route::get('/3', function () {
     return view('admin.newBookComplete');
 });
@@ -21,7 +26,7 @@ Route::get('/1', function () {
 // Route::get('/2', function () {
 //     return view('admin.index2');
 // });
-Route::get('/admin/new-book', function () {
+Route::get('/admin/newbook', function () {
     return view('admin.newBook');
 })->name('newBook');
 
