@@ -30,7 +30,7 @@ Route::get('/1', function () {
 // Route::get('/2', function () {
 //     return view('admin.index2');
 // });
-Route::get('/admin/newbook', function () {
+Route::get('/admin/newbook', function () {});
 
 
 
@@ -61,7 +61,7 @@ Route::post('isbnsearch', [BooksearchContoller::class, 'searchByIsbn'])
 ->name('isbnsearch');
 
 Route::post('/isbnadd', [BooksearchContoller::class, 'store'])
--> name('isbnadd')
+-> name('isbnadd');
 
 // Route::get('/book/{id}',[::class,'show'])
 // => name('book.show');
@@ -71,6 +71,3 @@ Route::post('/isbnadd', [BooksearchContoller::class, 'store'])
 // テスト用
 Route::get('/test-login', [TestLoginController::class, 'show'])->name('test.login.form');
 Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.login');
-
-
-
