@@ -63,8 +63,8 @@ Route::post('isbnsearch', [BooksearchContoller::class, 'searchByIsbn'])
 Route::post('/isbnadd', [BooksearchContoller::class, 'store'])
 -> name('isbnadd');
 
-// Route::get('/book/{id}',[::class,'show'])
-// => name('book.show');
+Route::get('/nomal/book/{id}', [LibraryController::class, 'show'])
+-> name('bookshow');
 
 
 
