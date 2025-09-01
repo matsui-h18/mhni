@@ -48,15 +48,16 @@ body {
 
 /* 新規登録ボタンの位置調整 */
 #new_btn {
-  margin-top: 10px; /* 上に余白を追加 */
-  display: flex; /* フレックスボックスで中央寄せ */
+  margin-top: 50px; /* 上に余白を追加 */
+  margin-bottom: 50px;
+  display: flex;
   justify-content: center; /* 横方向の中央寄せ */
 }
 
 
 /* ボタンにホバーしたときの色変更 */
 .btn:hover {
-  background-color: #7BAF1F; /* 黄緑っぽい色に変化 */
+  background-color:; /* 変化 */
 }
 
 /* フォームのラベル（太字で少し下に余白） */
@@ -80,4 +81,23 @@ body {
   max-width: 500px; /* 最大幅を指定 */
   max-height: 500px; /* 最大高さを指定 */
   border: solid 1px black; /* 黒い枠線 */
+}
+
+.new-book-btn {
+  font-size: 20px;       /* 文字サイズを大きく */
+  padding: 12px 24px;    /* 上下・左右の余白を広く */
+  width: 200px;          /* ボタンの横幅を指定（任意） */
+  height: 60px;          /* ボタンの高さを指定（任意） */
+  margin-top: 40px;      /* 上に余白 */
+  margin-bottom: 40px;
+}
+
+.edit-btn,
+.del-btn{
+    font-size: 20px;       /* 文字サイズを大きく */
+    padding: 12px 24px;    /* 上下・左右の余白を広く */
+    width: 100px;          /* ボタンの横幅を指定（任意） */
+    height: 60px;          /* ボタンの高さを指定（任意） */
+    margin-top: 40px;      /* 上に余白 */
+    margin-bottom: 40px;
 }
