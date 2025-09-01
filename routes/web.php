@@ -7,18 +7,18 @@ use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-    return view('admin.index2');
-    return view('test-login');
+    return view('normal.bookDetail');
 });
-
+//岩本
 Route::post('/normal/delete',[NormalDbController::class,'deleteCheck']);
 Route::post('/normal/deleteComplete',[NormalDbController::class,'deleteComment']);
 
 Route::post('/normal/commentEdit', [NormalDbController::class, 'edit'])->name('commentEdit');
 Route::post('/normal/commentDelete', [NormalDbController::class, 'delete'])->name('commentDelete');
 
-
-
+Route::post('/normal/commentEditComplete', [NormalDbController::class, 'editComplete'])->name('commentEditComplete');
+Route::post('/normal/commentDeleteComplete', [NormalDbController::class, 'deleteComplete'])->name('commentDeleteComplete');
+Route::get('/normal/bookDetail', [normalDbController::class, 'show'])->name('normal.bookDetail');
 Route::get('/3', function () {
     return view('admin.newBookComplete');
 });
@@ -30,11 +30,11 @@ Route::get('/1', function () {
 //     return view('admin.index2');
 // });
 Route::get('/admin/newbook', function () {
-
+});
 
 
 // 以下、経理部用
-Route::get('/', [AccController::class, 'allshow']); //allshowメソッド
+//Route::get('/', [AccController::class, 'allshow']); //allshowメソッド
 Route::get('/admin/new-book', function () {
     return view('admin.newBook');
 })->name('newBook');

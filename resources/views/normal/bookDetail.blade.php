@@ -113,14 +113,14 @@
     <!-- 編集ボタン -->
     <form action="/normal/commentEdit" method="post">
         @csrf
-        {{-- <input type="hidden" name="comment_id" value="{{ $comment->id }}"> --}}
+        <input type="hidden" name="comment_id" value="{{ $comment->id }}"> 
         <input type="submit" value="編集" class="btn btn-warning">
     </form>
 
     <!-- 削除ボタン -->
     <form action="/normal/commentDelete" method="post">
         @csrf
-        {{-- <input type="hidden" name="comment_id" value="{{ $comment->id }}"> --}}
+        <input type="hidden" name="comment_id" value="{{ $comment->id }}">
         <input type="submit" value="削除" class="btn btn-danger">
     </form>
 </div>

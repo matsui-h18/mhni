@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Comment;
+use App\Models\User;
 
 class NormalDbController extends Controller
 {
@@ -40,26 +41,75 @@ class NormalDbController extends Controller
 
     public function edit(Request $request)
     {
-    $commentId = $request->input('comment_id');
     // 編集画面へリダイレクト or 編集処理
-
-    if($request ->isMethod('post')){
-            $id=$request->id;
-           $data=[
-            'record'=> Comment::find($id)
-           ];
-           return view('normal.commentDelete',$data);
-        }else{
-            redirect('normal/bookDetail');
-        }
-
+    $commentId = $request->input('comment_id');
+    
+    //編集画面にはidを受け取り、既にあるコメントを保持して表示させたいがエラーがでるのでコメントアウト
+    
+    // if($request ->isMethod('post')){
+    //        $id=$request->id;
+    //        $data=[
+    //         'record'=> Comment::find($id)
+    //        ];
+    //        return view('normal.commentDelete',$data);
+    //     }else{
+    //         redirect('normal/bookDetail');
+    //     }
+    // }
     }
 
     public function delete(Request $request)
-    {   
-    $commentId = $request->input('comment_id');
-    // 削除処理
+    {
+    // 削除画面へリダイレクトまで
+        $commentId = $request->input('comment_id');
+    
     }
+
+    public function editComplete(Request $request)
+    {
+        $commentId = $request->input('comment_id');
+        $evaluation = $request->input('evaluation');
+        $commentText = $request->input('comment');
+
+        // 入力のバリデーション
+        if (empty($evaluation) || empty($commentText)) {
+            return redirect()->back()->with('error', 'おすすめ度の選択又はコメントが入力されていません。');
+        }
+
+        // コメントをデータベースで更新
+        $comment = \App\Models\Comment::find($commentId);
+        if ($comment) {
+            $comment->evaluation = $evaluation;
+            $comment->comment = $commentText;
+            $comment->save();
+            return view('normal.commentEditComplete');
+        } else {
+            return redirect()->back()->with('error', 'コメントが見つかりません。');
+        }
+    }
+    public function deleteComplete(Request $request)
+    {
+        $commentId = $request->input('comment_id');
+        // コメントIDが提供されていない場合の処理
+        if (!$commentId) {
+            return redirect()->back()->with('error', 'コメントIDが提供されていません。');
+        }
+
+        // コメントをデータベースから削除
+        $comment = \App\Models\Comment::find($commentId);
+        if ($comment) {
+            $comment->delete();
+            return view('normal.commentDeleteComplete');
+        } else {
+            return redirect()->back()->with('error', 'コメントが見つかりません。');
+        }
+    }
+    public function detail()
+    {
+        $commentId = $request->input('comment_id');
+        return view('normal.bookDetail', ['book' => $book]);
+    }
+
 
 
     
