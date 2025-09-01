@@ -28,6 +28,7 @@
         /* BookMHNIのロゴ */
         #logo{
             margin-top:50px;
+            font-size:50px;
             text-align: center;
             font-family:  serif,'arial black'; /* フォント変更する場合ここ */
         }
@@ -52,13 +53,15 @@
           justify-content: center; /* 横方向の中央揃え */
           align-items: center; /* 縦方向の中央揃え */
           text-align: center;
+          margin-top:50px;
+          margin-bottom:0px;
         }
 
     </style>
 </head>
 <body>
   <div class="center">
-    <h1 id="logo">BookMHNI</h1>
+    <div id="logo">BookMHNI</div>
         <div id="sub_logo">－書籍管理システム－</div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
