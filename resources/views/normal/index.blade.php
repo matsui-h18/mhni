@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>書籍一覧</title>
-  
+
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
   <h1 class="page-title">書籍一覧</h1>
+  @foreach($records as $record)
+  <div class="book-list">
+    <div class="book-row">
+      <div class="book-image">
+        <img src="{{ $record -> image}}" alt="本{{ $loop->iteration }}" class="image-display">
+      </div>
+      <div class="book-info">
+         <a href=""
+           class="book-title">
+          {{ $record->book_name }}
+      </div>
+    </div>
+  @endforeach
 
   <div class="book-list">
     <div class="book-row">
@@ -18,6 +32,7 @@
         <a href="book1.html" class="book-title">吾輩は猫である</a>
       </div>
     </div>
+
 
     <div class="book-row">
       <div class="book-image">

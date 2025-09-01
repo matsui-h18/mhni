@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccController;
+use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-    return view('normal.bookDetail');
+    return view('admin.index2');
+    return view('test-login');
 });
 
 Route::post('/normal/delete',[NormalDbController::class,'deleteCheck']);
@@ -27,19 +30,40 @@ Route::get('/1', function () {
 //     return view('admin.index2');
 // });
 Route::get('/admin/newbook', function () {
+
+
+
+// 以下、経理部用
+Route::get('/', [AccController::class, 'allshow']); //allshowメソッド
+Route::get('/admin/new-book', function () {
     return view('admin.newBook');
 })->name('newBook');
 
-/*Route::get('/admin/index2', function () {
-    return view('admin.index2');
-})->name('admin.index2');*/
+Route::post('/admin/newBookComplete', [AccController::class,'store']);
+Route::get('/admin/index2', [AccController::class,'allshow'])->name('admin.index2'); //自動遷移
+
+//データ編集用
+Route::post('admin/bookEdit',[AccController::class,'edit']);
+Route::post('admin/bookEditComplete',[AccController::class,'update']);
 
 
-//Route::get('/admin/newBookComplete', [AccController::class,'store'] ) ;
-Route::post('/admin/newBookComplete', [AccController::class,'store'] ) ;
 
 
-// こっちだけ残す！
-Route::get('/admin/index2', [AccController::class,'allshow'])->name('admin.index2');
+// 中島
+Route::get('/admin/index2', [AccController::class, 'allshow'])
+->middleware(['auth'])->name('support');
+
+Route::get('/normal/index', [LibraryController::class,'index'])
+->middleware(['auth'])->name('dashboard');
+
+// Route::get('/book/{id}',[::class,'show'])
+// => name('book.show');
+
+
+
+// テスト用
+Route::get('/test-login', [TestLoginController::class, 'show'])->name('test.login.form');
+Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.login');
+
 
 
