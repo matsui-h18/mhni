@@ -1,92 +1,83 @@
 @charset "utf-8";
 
+/* ページ全体のレイアウト設定 */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  flex-direction: column;
-  font-family: sans-serif;
+  display: flex; /* 子要素をフレックスボックスで並べる */
+  justify-content: center; /* 中央寄せ（横方向） */
+  align-items: center; /* 中央寄せ（縦方向） */
+  margin: 0; /* 余白なし */
+  flex-direction: column; /* 縦並びにする */
+  font-family: sans-serif; /* サンセリフ体のフォントを使用 */
 }
 
-/* ���Е\���e�[�u�� */
+/* 本の情報を表示する枠 */
 .book-table {
-  border-collapse: collapse;
-  width: 600px;
-  max-width: 600px;
-  margin-top: 20px;
-  table-layout: fixed;
+  display: flex; /* 子要素を横並びにする */
+  justify-content: space-between; /* 左右に分けて配置 */
+  align-items: center; /* 垂直方向の中央揃え */
+  width: 1200px; /* 幅を固定 */
+  border: solid 1px black; /* 黒い枠線 */
+  margin: 10px auto; /* 上下に余白、中央寄せ */
+  padding: 10px; /* 内側の余白 */
 }
 
-.book-table td,
-.book-table th {
-  border: 1px solid black;
-  padding: 8px;
-  vertical-align: top;
+/* 本の画像とテキストをまとめる枠 */
+.book-info {
+  display: flex; /* 横並びにする */
+  gap: 20px; 要素間の隙間
+  align-items: center; /* 垂直方向の中央揃え */
 }
 
-.book-table td:first-child {
-  width: 120px; /* �摜�p�� */
+/* 本のテキスト情報（タイトル・著者・出版日） */
+.book-text p {
+  margin: 4px 0; /* 上下の余白を少しだけ設定 */
 }
 
-/* �{�^������ */
-.btn {
-  width: 80px;
-  height: 40px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: #9ACD32; /* ���� */
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #7BAF1F;
-}
-
-/* ���̓t�B�[���h */
-.field-label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
-}
-
-.field-input {
-  width: 100%;
-  flex-grow: 1;
-  box-sizing: border-box;
-}
-
-/* �摜�\�� */
-.image-display {
-  width: 100px;
-  height: 120px;
-  object-fit: cover;
-}
-
-/* ���͗��ƃ{�^���������� */
-.input-button-wrapper {
-  display: flex;
-  flex-direction: row; /* ������ */
-  align-items: flex-start;
-  width: 100%;
-}
-
-/* �{�^���G���A�i�c���тŉE���ɔz�u�j */
+/* 編集・削除ボタンの配置 */
 .button-area {
-  display: flex;
-  flex-direction: column; /* �c���� */
-  gap: 8px;
-  margin-left: 8px; /* ���͗��Ƃ̌��� */
+  display: flex; /* フレックスボックスで並べる */
+  flex-direction: column; /* 縦並びにする */
+  gap: 8px; /* ボタン間の隙間 */
 }
 
-/* ��؂�� */
-hr {
-  width: 80%;
-  border: none;
-  border-bottom: 2px solid #000;
-  margin: 20px 0;
+/* ボタンの基本スタイル */
+.btn.btn-primary {
+  margin: 10px; /* 外側の余白 */
+  padding: 10px; /* 内側の余白（クリックしやすく） */
+}
+
+/* 新規登録ボタンの位置調整 */
+#new_btn {
+  margin-top: 10px; /* 上に余白を追加 */
+  display: flex; /* フレックスボックスで中央寄せ */
+  justify-content: center; /* 横方向の中央寄せ */
+}
+
+
+/* ボタンにホバーしたときの色変更 */
+.btn:hover {
+  background-color: #7BAF1F; /* 黄緑っぽい色に変化 */
+}
+
+/* フォームのラベル（太字で少し下に余白） */
+.field-label {
+  display: block; /* ブロック要素にする */
+  margin-bottom: 4px; /* 下に余白 */
+  font-weight: bold; /* 太字にする */
+}
+
+/* 入力フィールドのスタイル */
+.field-input {
+  width: 100%; /* 横幅いっぱいに広げる */
+  flex-grow: 1; /* 空きスペースを埋めるように伸びる */
+  box-sizing: border-box; /* パディングやボーダーを含めてサイズ計算 */
+}
+
+/* 本の画像の表示スタイル */
+.image-display {
+  width:200px;
+  height: 200px; /* 高さを固定 */
+  max-width: 500px; /* 最大幅を指定 */
+  max-height: 500px; /* 最大高さを指定 */
+  border: solid 1px black; /* 黒い枠線 */
 }
