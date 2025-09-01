@@ -7,6 +7,7 @@ use App\Models\Book;
 
 class AccController extends Controller
 {
+    // データ新規登録用
     public function store(Request $req){
         $Book=new Book();
         $Book->book_name=$req->book_name;
@@ -22,8 +23,9 @@ class AccController extends Controller
             'price'=>$req->price,
             'isbn'=>$req->isbn];
         return view('admin.newBookComplete',$data);
-
     }
+
+    // 全件表示用
     public function allshow(){
         $data=[
             'books'=>Book::all()
@@ -31,4 +33,12 @@ class AccController extends Controller
         return view('admin.index2',$data);
     }
 
+    // 本の情報編集用
+    public function edit(Request $req){
+        $id=$req->id;
+        $data = [
+            // 押された
+        ]
+        return view('')
+    }
 }
