@@ -38,7 +38,7 @@ class AccController extends Controller
         $id=$req->id;
         $data = [
             // 押された
-        ]
-        return view('')
+        ];
+        return view('');
     }
 }
