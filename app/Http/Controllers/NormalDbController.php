@@ -8,8 +8,7 @@ use App\Models\Comment;
 
 class NormalDbController extends Controller
 {
-    public function deleteComment(Request $request)
-    {
+    public function deleteComment(Request $request){
         $commentId = $request->input('comment_id');
         // コメントIDが提供されていない場合の処理
         if (!$commentId) {
@@ -25,18 +24,18 @@ class NormalDbController extends Controller
             return redirect()->back()->with('error', 'コメントが見つかりません。');
         }
     }
-    public function deleteCheck(Request $request)
-        {
-            if($req ->isMethod('post')){
+
+    public function deleteCheck(Request $request){
+        if($req ->isMethod('post')){
             $id=$req->id;
-           $data=[
+            $data=[
             'record'=> Comment::find($id)
-           ];
-           return view('normal.commentDelete',$data);
+            ];
+            return view('normal.commentDelete',$data);
         }else{
             redirect('normal/bookDetail');
         }
-
+    }
     
     //public function editComment(Request $request)
     // {
@@ -61,12 +60,33 @@ class NormalDbController extends Controller
     //     }
     // }
 
-    public function showBookDetail()
-    {
-        // $book = Book::findOrFail(1); // id=1 の本
-        // return view('bookDetail', ['book' => $book]);
+
+public function showBookDetail(Request $req){
+    // POSTの場合はinputから取得
+    if ($request->isMethod('post')) {
+        $id = $req->id;
+        $data = [
+            'bookDetail' => Book::find($id)
+        ];
+        return view('normal.index',$data);
+    }else{
+        redirect('/');
     }
 
+    $book = Book::findOrFail($id);
+    return view('normal.bookDetail', compact('book'));
+}
+
+
+
+    
+    // 全件表示用
+    public function allshow(){
+        $books = Book::all();
+        return view('normal.index', compact('books'));
+    }
+
+    // コメント全件表示
     //     public function showComment()
     // {
     //     $comment = Comments::findOrFail(1);

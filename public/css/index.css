@@ -7,7 +7,7 @@ body {
   background-color: #f4f4f9;
 }
 
-/* ƒ^ƒCƒgƒ‹ */
+/* ï¿½^ï¿½Cï¿½gï¿½ï¿½ */
 .page-title {
   font-size: 34px;
   font-weight: bold;
@@ -15,8 +15,9 @@ body {
   color: #333;
 }
 
-/* ‘S‘ÌƒŠƒXƒg */
+/* ï¿½Sï¿½Ìƒï¿½ï¿½Xï¿½g */
 .book-list {
+  display: block;
   width: 850px;
   margin: 0 auto;
   text-align: left;
@@ -27,7 +28,7 @@ body {
   overflow: hidden;
 }
 
-/* Šes */
+/* ï¿½eï¿½s */
 .book-row {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -42,14 +43,14 @@ body {
   background-color: #eaf4ff;
 }
 
-/* ¶ƒJƒ‰ƒ€i‰æ‘œj */
+/* ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½iï¿½æ‘œï¿½j */
 .book-image {
   width: 150px;
   text-align: center;
   flex-shrink: 0;
 }
 
-/* ‰æ‘œiŒÅ’èƒTƒCƒYj */
+/* ï¿½æ‘œï¿½iï¿½Å’ï¿½Tï¿½Cï¿½Yï¿½j */
 .image-display {
   width: 150px;
   height: 200px;
@@ -59,17 +60,17 @@ body {
   background-color: #eee;
 }
 
-/* ‰EƒJƒ‰ƒ€i–{‚Ìî•ñj */
+/* ï¿½Eï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½iï¿½{ï¿½Ìï¿½ï¿½j */
 .book-info {
   padding-left: 20px;
   flex-grow: 1;
-  height: 200px;          /* ‰æ‘œ‚Æ“¯‚¶‚‚³‚ÉŒÅ’è */
-  display: flex;          /* ƒtƒŒƒbƒNƒXƒ{ƒbƒNƒX‚É‚·‚é */
-  align-items: center;    /* © •¶š‚ğc’†‰›‚É”z’u */
+  height: 200px;          /* ï¿½æ‘œï¿½Æ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŒÅ’ï¿½ */
+  display: flex;          /* ï¿½tï¿½ï¿½ï¿½bï¿½Nï¿½Xï¿½{ï¿½bï¿½Nï¿½Xï¿½É‚ï¿½ï¿½ï¿½ */
+  align-items: center;    /* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½É”zï¿½u */
   text-align: left;
 }
 
-/* ƒ^ƒCƒgƒ‹ƒŠƒ“ƒN */
+/* ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½N */
 .book-title {
   font-size: 20px;
   font-weight: bold;
