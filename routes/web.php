@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-     return view('normal.bookDetail');
+    return view('normal.bookDetail');
 });
 Route::get('/3', function () {
     return view('admin.newBook');

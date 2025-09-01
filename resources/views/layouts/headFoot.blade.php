@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
 
@@ -34,7 +34,7 @@
 
         /* BookMHNIのロゴ下の「書籍管理システム」 */
         #sub_logo{
-            margin-bottom:50px;
+            margin-bottom:30px;
             font-size:20px;
             text-align: center;
             font-family:  serif,'arial black'; /* フォント変更する場合ここ */
@@ -42,6 +42,16 @@
 
         button{
           background-color:#c1e4e9;
+        }
+
+        #footer{
+          background-color: black; /* フッターの背景 */
+          color:white; /* 文字色 */
+          height: 100px;
+          display: flex; /* Flexboxを有効にする */
+          justify-content: center; /* 横方向の中央揃え */
+          align-items: center; /* 縦方向の中央揃え */
+          text-align: center;
         }
 
     </style>
@@ -69,6 +79,9 @@
     @show
   </div>
 
+  <div id="footer">
+    お困りごとがありましたら、経理部（内線8番）まで
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
