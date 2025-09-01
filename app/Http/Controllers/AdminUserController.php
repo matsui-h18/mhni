@@ -50,6 +50,14 @@ class AdminUserController extends Controller
         }
 
         $user = User::findOrFail($id);
+
+        // dep_id=2 のユーザーが1人しかいない場合は削除を止める
+        $dep2Count = User::where('dep_id', 2)->count();
+        if ($user->dep_id == 2 && $dep2Count <= 1) {
+            return redirect()->route('management.users.index')
+                ->with('error', 'dep_id=2 のユーザーが最後の1人なので削除できません');
+        }
+
         $user->delete();
 
         return redirect()->route('management.users.index')->with('status', 'ユーザーを削除しました');
