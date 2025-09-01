@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccController;
+use App\Http\Controllers\BooksearchContoller;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
@@ -48,6 +49,12 @@ Route::get('/admin/index2', [AccController::class, 'allshow'])
 
 Route::get('/normal/index', [LibraryController::class,'index'])
 ->middleware(['auth'])->name('dashboard');
+
+Route::post('isbnsearch', [BooksearchContoller::class, 'searchByIsbn'])
+->name('isbnsearch');
+
+Route::post('/isbnadd', [BooksearchContoller::class, 'store'])
+-> name('isbnadd')
 
 // Route::get('/book/{id}',[::class,'show'])
 // => name('book.show');
