@@ -77,7 +77,11 @@ Route::get('/nomal/book/{id}', [LibraryController::class, 'show'])
 Route::get('/isbn', [LibraryController::class, 'search'])
 ->name('isbn');
 
+Route::get('/bookEdit/{id}', [LibraryController::class, 'edit'])
+->name('bookEdit');
 
+Route::post('/bookUpdate', [LibraryController::class, 'update'])
+->name('bookUpdate');
 
 // テスト用
 Route::get('/test-login', [TestLoginController::class, 'show'])->name('test.login.form');
@@ -114,9 +118,9 @@ Route::get('/admin/newBook', function () {
 
 // ----------------------------本の情報を編集-----------------------------------------------
 // 本の情報を編集「bookEdit」にアクセスしたときに、以下が実行される
-Route::get('/admin/bookEdit', function () {
-    return view('admin.bookEdit');
-})->name('bookEdit');
+// Route::get('/admin/bookEdit', function () {
+//     return view('admin.bookEdit');
+// })->name('bookEdit');
 //->name('bookEdit')のように名前を付けることで
 //aタグに「{{ route('bookEedit') }}」と書くことが可能
 
