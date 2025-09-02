@@ -20,10 +20,12 @@
 <button type="button" class="btn btn-primary">変更</button>
 
 <div class="edit_del_btn" style="display: flex; gap: 10px;">
-    <!-- 変更ボタン -->
+    <!-- 変更ボタンとデータベースから既存コメントを引用して表示-->
     <form action="/normal/commentEditComplete" method="post">
         @csrf
-        {{-- <input type="hidden" name="comment_id" value="{{ $comment->id }}"> --}}
+        <input type="hidden" name="id" value="{{$record->id}}"><br>
+    投稿者<input type="text" name="user_name" value="{{$record->user_name}}"><br>
+    コメント<textarea name="comment" class="form-control" required>{{ old('comment', $comment->content) }}</textarea>
         <input type="submit" value="変更" class="btn btn-warning">
     </form>
 

@@ -54,16 +54,16 @@ class NormalDbController extends Controller
     
     //編集画面にはidを受け取り、既にあるコメントを保持して表示させたいがエラーがでるのでコメントアウト
     
-    // if($request ->isMethod('post')){
-    //        $id=$request->id;
-    //        $data=[
-    //         'record'=> Comment::find($id)
-    //        ];
-    //        return view('normal.commentDelete',$data);
-    //     }else{
-    //         redirect('normal/bookDetail');
-    //     }
-    // }
+    if($request ->isMethod('post')){
+           $id=$request->id;
+           $data=[
+            'record'=> Comment::find($id)
+           ];
+           return view('normal.commentDelete',$data);
+        }else{
+            redirect('normal/bookDetail');
+        }
+    }
     }
 
     public function delete(Request $request)

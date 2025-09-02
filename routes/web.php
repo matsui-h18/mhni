@@ -8,8 +8,8 @@ use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-    return view('admin.index2');
-    return view('test-login');
+    return view('normal.bookDetail');
+    // return view('test-login');
 });
 //岩本
 Route::get('/normal/index', [NormalDbController::class, 'allshow'])->name('normal.index');
