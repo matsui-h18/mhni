@@ -74,7 +74,7 @@ Route::post('/isbnadd', [BooksearchContoller::class, 'store'])
 Route::get('/nomal/book/{id}', [LibraryController::class, 'show'])
 ->name('bookshow');
 
-Route::get('isbn', [LibraryController::class, 'search'])
+Route::get('/isbn', [LibraryController::class, 'search'])
 ->name('isbn');
 
 
