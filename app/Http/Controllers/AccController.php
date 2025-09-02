@@ -33,6 +33,23 @@ class AccController extends Controller
         ];
         return view('admin.index2',$data);
     }
+    //hayashi   
+    public function bookdelete($id){
+        $book = Book::findOrFail($id); // IDで1冊取得（存在しない場合は404）
+        return view('admin.bookDelete', compact('book'));
+    }
 
+    public function erase(Request $req){
+        $id = $req->id;
+        $data=['books'=>Book::find($id)];
+        return view('admin.bookDelete',$data);
 
+}
+    public function deleteComplete(Request $req){
+        $booK=Book::find($req->id);
+        $booK->delete();
+        
+        return view('admin.bookDeleteComplete');
+    }
+        
 }

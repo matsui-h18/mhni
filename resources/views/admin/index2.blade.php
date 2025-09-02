@@ -30,7 +30,7 @@
     <!-- 右側：ボタン -->
     <div class="button-area">
         <a href="{{ route('bookEdit') }}"><button class="btn btn-primary edit-btn">編集</button></a>
-        <a href="{{ route('bookDelete') }}"><button class="btn btn-primary del-btn">削除</button>
+        <a href="{{ route('bookDelete', ['id' => $book->id]) }}"><button class="btn btn-primary del-btn">削除</button>
     </div>
 </div>
 @endforeach

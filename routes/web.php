@@ -173,3 +173,6 @@ Route::get('/admin/bookDeleteComplete_backToIndex2', function () {
 
 
 /*/*☆☆☆☆☆☆☆☆　以上、松井編集　☆☆☆☆☆☆☆☆*/
+Route::get('/admin/bookDelete/{id}', [AccController::class, 'bookdelete'])->name('bookDelete');
+
+Route::get('/admin/bookErase/{id}', [AccController::class, 'deleteComplete'])->name('bookDeleteComplete');

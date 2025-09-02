@@ -9,29 +9,30 @@
 
         <div class="info">
             <p>
-                本の名前：
-                <input type="text" id="book_name" name="book_name" maxlength="50" readonly>
+                本の名前：{{ $book->book_name }}
             </p>
         <br>
             <p>
                 著者：
-                <input type="text" id="author" name="author" maxlength="16" readonly>
+                {{ $book->author }}
             </p>
         <br>
             <p>
                 出版日：
-                <input type="date" id="pub_date" name="pub_date" readonly>
+             {{ $book->pub_date }}
             </p>
         <br>
             <p>
                 ISBN（13桁）：
-                <input type="number" id="isbn" name="isbn" readonly>
+                {{ $book->isbn }}
             </p>
         </div>
 
         <h1>本当に削除しますか？</h1>
-        <a href="{{ route('bookDeleteComplete') }}" class="btn btn-primary new-book-btn">はい</a>
-        <a href="{{ route('backToIndex2') }}" class="btn btn-secondary new-book-btn">いいえ</a>
+      <div class="button-group">
+    <a href="{{ route('bookDeleteComplete',['id' => $book->id]) }}" class="btn btn-primary new-book-btn">はい</a>
+    <a href="{{ route('backToIndex2') }}" class="btn btn-secondary new-book-btn">いいえ</a>
+</div>
    
     </form>
 

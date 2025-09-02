@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+form {
+    max-width: 600px;
+    margin: 60px auto 100px auto; /* 上下と横中央揃え */
+    padding: 20px;
+}
+
+/* タイトルは中央揃えのままでOK */
+h1 {
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+
+}
+
+/* 入力欄のラベルとフィールドを左揃えにする */
+.info p {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 入力欄を幅いっぱいに広げて見やすく */
+.info input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* ボタンは中央揃え */
+.new-book-btn {
+    display: block;
+    margin: 30px auto;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+}
+.button-group {
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    gap: 30px;                /* ボタン間のスペース */
+    margin-top: 40px;
+}
+
+.new-book-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+}
+
