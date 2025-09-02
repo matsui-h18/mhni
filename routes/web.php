@@ -8,8 +8,8 @@ use App\Http\Controllers\TestLoginController;
 use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
-    return view('normal.index3');
-    // return view('test-login');
+    // return view('normal.index3');
+    return view('test-login');
 });
 
 
@@ -92,7 +92,7 @@ Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.lo
 
 /*☆☆☆☆☆☆☆☆　以下、松井編集　☆☆☆☆☆☆☆☆*/
 
-Route::get('/aaa', [NormalDbController::class, 'allshow']);
+Route::get('/show', [NormalDbController::class, 'allshow']);
 
 
 // 一般ユーザの本一覧を全件表示する
