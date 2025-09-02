@@ -21,14 +21,10 @@ Route::get('/normal/index', [NormalDbController::class, 'allshow'])->name('norma
 Route::get('/normal/bookDetailComment', [NormalDbController::class, 'allcommentshow']);
 
 
-Route::post('/normal/delete',[NormalDbController::class,'deleteCheck']);
-Route::post('/normal/deleteComplete',[NormalDbController::class,'deleteComment']);
 
 Route::post('/normal/commentEdit', [NormalDbController::class, 'edit'])->name('commentEdit');
-Route::post('/normal/commentDelete', [NormalDbController::class, 'delete'])->name('commentDelete');
 
 Route::post('/normal/commentEditComplete', [NormalDbController::class, 'editComplete'])->name('commentEditComplete');
-Route::post('/normal/commentDeleteComplete', [NormalDbController::class, 'deleteComplete'])->name('commentDeleteComplete');
 Route::get('/normal/bookDetail', [normalDbController::class, 'show'])->name('normal.bookDetail');
 Route::get('/3', function () {
     return view('admin.newBookComplete');
@@ -84,6 +80,19 @@ Route::get('/bookEdit/{id}', [LibraryController::class, 'edit'])
 
 Route::post('/bookUpdate', [LibraryController::class, 'update'])
 ->name('bookUpdate');
+
+// コメント
+Route::post('/normal/deleteComplete',[LibraryController::class,'deleteComment'])
+->name('comdel');
+
+Route::post('/normal/delete',[LibraryController::class,'deleteCheck'])
+->name('commentDelete');
+
+Route::post('/normal/commentAdd',[LibraryController::class,'addcheck'])
+->name('commentAdd');
+
+
+
 
 // テスト用
 Route::get('/test-login', [TestLoginController::class, 'show'])->name('test.login.form');

@@ -5,7 +5,7 @@
 <!-- 上記CSSはadmin/index2と同じなため注意 -->
 
 @foreach ($books as $book)
-<a href="{{ route('bookDetail', ['id' => $book->id])}}">
+<a href="{{ route('bookDetail', ['id' => $book_id])}}">
   <div class="book-table">
     <div class="book-info">
         @if ($book->image)
