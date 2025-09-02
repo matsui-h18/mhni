@@ -13,7 +13,7 @@ class LibraryController extends Controller
         $data = [
             'records' => Book::all()
         ];
-        return view('normal.index', $data);
+        return view('normal.index3', $data);
     }
 
     public function search(){
@@ -27,7 +27,7 @@ class LibraryController extends Controller
 
         return view('normal.bookDetail', [
             'book' => $book,
-            'comments' => $comments,
+            'comment' => $comments,
         ]);
     }
 }
