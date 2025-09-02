@@ -19,13 +19,13 @@
         margin:50px;
     }
 </style>
-<meta http-equiv="refresh" content="2;url={{ route('backToIndex2') }}">
+<meta http-equiv="refresh" content="2;url={{ route('support')}}">
 
     <h1>変更が完了しました</h1>
     <div class="editData">
-        <p>ほんのなまえ</p>
-        <p>ちょしゃ</p>
-        <p>しゅっぱんび</p>
-        <p>ISBN</p>
+        <p>{{ $book_name }}</p>
+        <p>{{ $author }}</p>
+        <p>{{ $pub_date }}</p>
+        <p>{{ $isbn }}</p>
     </div>
 @endsection

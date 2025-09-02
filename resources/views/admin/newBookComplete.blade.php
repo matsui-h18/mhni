@@ -19,7 +19,7 @@
         margin:50px;
     }
 </style>
-<meta http-equiv="refresh" content="2;url={{ route('admin.index2') }}">
+<meta http-equiv="refresh" content="2;url={{ route('support')}}">
 
     <h1>新規登録が完了しました</h1>
     <div class="newData">
