@@ -2,19 +2,14 @@
 
 /* ページ全体のレイアウト設定 */
 body {
-  display: flex; /* 子要素をフレックスボックスで並べる */
-  justify-content: center; /* 中央寄せ（横方向） */
-  align-items: center; /* 中央寄せ（縦方向） */
-  margin: 0; /* 余白なし */
-  flex-direction: column; /* 縦並びにする */
-  font-family: sans-serif; /* サンセリフ体のフォントを使用 */
+
 }
 
 /* 本の情報を表示する枠 */
 .book-table {
   display: flex; /* 子要素を横並びにする */
-  justify-content: space-between; /* 左右に分けて配置 */
-  align-items: center; /* 垂直方向の中央揃え */
+  /*justify-content: space-between; /* 左右に分けて配置 */
+  align-items: flex-start; /* 垂直方向の中央揃え */
   width: 1200px; /* 幅を固定 */
   border: solid 1px black; /* 黒い枠線 */
   margin: 10px auto; /* 上下に余白、中央寄せ */
@@ -24,8 +19,11 @@ body {
 /* 本の画像とテキストをまとめる枠 */
 .book-info {
   display: flex; /* 横並びにする */
-  gap: 20px; 要素間の隙間
-  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: flex-start;
+  gap: 20px; /*要素間の隙間*/
+  align-items: flex-start;
+  gap:20px;
+  flex-grow: 1; /* 垂直方向の中央揃え */
 }
 
 /* 本のテキスト情報（タイトル・著者・出版日） */
@@ -36,8 +34,14 @@ body {
 /* 編集・削除ボタンの配置 */
 .button-area {
   display: flex; /* フレックスボックスで並べる */
-  flex-direction: column; /* 縦並びにする */
+  flex-direction: column;
+  /*justify-content: flex-start;*/
+  /*align-items: flex-end; /* 縦並びにする */
   gap: 8px; /* ボタン間の隙間 */
+  /*margin-left:225px;*/
+  margin-top: 15px;
+  margin-left: 10px;
+
 }
 
 /* ボタンの基本スタイル */
@@ -56,23 +60,11 @@ body {
 
 
 /* ボタンにホバーしたときの色変更 */
-.btn:hover {
-  background-color:; /* 変化 */
-}
+/*.btn:hover {
+  /*background-color:; /* 変化 
+}*/
 
-/* フォームのラベル（太字で少し下に余白） */
-.field-label {
-  display: block; /* ブロック要素にする */
-  margin-bottom: 4px; /* 下に余白 */
-  font-weight: bold; /* 太字にする */
-}
 
-/* 入力フィールドのスタイル */
-.field-input {
-  width: 100%; /* 横幅いっぱいに広げる */
-  flex-grow: 1; /* 空きスペースを埋めるように伸びる */
-  box-sizing: border-box; /* パディングやボーダーを含めてサイズ計算 */
-}
 
 /* 本の画像の表示スタイル */
 .image-display {
@@ -81,6 +73,8 @@ body {
   max-width: 500px; /* 最大幅を指定 */
   max-height: 500px; /* 最大高さを指定 */
   border: solid 1px black; /* 黒い枠線 */
+  margin-left:0px;
+  object-fit: cover;
 }
 
 .new-book-btn {
@@ -100,4 +94,31 @@ body {
     height: 60px;          /* ボタンの高さを指定（任意） */
     margin-top: 40px;      /* 上に余白 */
     margin-bottom: 40px;
+    background-color:#D0EAF7;
+    color:black;
+}
+.book-info > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;         /* ← テキストを左寄せ */
+  width: 800px;             /* ← 幅を固定して左端に揃える */
+}
+.book-info > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* ← 子要素を左端に揃える！ */
+  text-align: left;          /* ← テキストの揃えも左に */
+                /* ← スペースを自然に広げる */
+}
+.book-info h1,
+.book-info p {
+  margin: 0;
+}
+.book-table a {
+  text-decoration: none; /* 下線を消す */
+           /* 親要素の文字色を引き継ぐ（必要なら） */
+}
+a {
+  text-decoration: none;
 }
