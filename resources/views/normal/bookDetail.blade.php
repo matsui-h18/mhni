@@ -6,7 +6,13 @@
 
 <div class="book-display">
     <!-- 選択された本の表示 -->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuxOkwIGXzevDS_lS9CceoaHfTetR75g0IILx0NEOKVlqv55oZqfly6TI&s" alt="本サンプル">
+    <div class="image-wrapper">
+        @if ($book->image)
+        <img src="{{ $book->image }}" alt="本の画像" class="image-display">
+        @else
+        <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
+        @endif
+    </div>
 
     <div id="info">
         <h1 id="book_title" name="book_name">{{ $book->book_name }}</h1>
