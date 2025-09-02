@@ -10,27 +10,27 @@
 @foreach ($books as $book)
 <div class="book-table">
     <!-- 左側：画像とテキスト -->
-<a href="{{ route('bookDetail', ['id' => $book->id])}}">
-  <div class="book-table">
-    <div class="book-info">
-        @if ($book->image)
-        <img src="{{ $book->image }}" alt="本の画像" class="image-display">
-        @else
-        <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
-        @endif
-      <div class="">
-        <h1>{{ $book->book_name }}</h1>
-        {{ $book->author }}<br>
-        {{ $book->pub_date }}<br>
-      </div>
-    </div>
-  </div>
-</a>
+    <a href="{{ route('bookDetail', ['id' => $book->id])}}">
+        <div class="book-table">
+            <div class="book-info">
+                @if ($book->image)
+                <img src="{{ $book->image }}" alt="本の画像" class="image-display">
+                @else
+                <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
+                @endif
+                <div class="">
+                    <h1>{{ $book->book_name }}</h1>
+                    {{ $book->author }}<br>
+                    {{ $book->pub_date }}<br>
+                </div>
+            </div>
+        </div>
+    </a>
 
     <!-- 右側：ボタン -->
     <div class="button-area">
-        <a href="{{ route('bookEdit') }}"><button class="btn btn-primary edit-btn">編集</button></a>
-        <a href="{{ route('bookDelete') }}"><button class="btn btn-primary del-btn">削除</button>
+        <a href="{{ route('bookEdit', ['id' => $book->id]) }}"><button class="btn btn-primary edit-btn">編集</button></a>
+        <a href="{{ route('bookDelete', , ['id' => $book->id]) }}"><button class="btn btn-primary del-btn">削除</button>
     </div>
 </div>
 @endforeach
