@@ -34,7 +34,7 @@ Route::get('/1', function () {
 // Route::get('/2', function () {
 //     return view('admin.index2');
 // });
-Route::get('/admin/newbook', function () {
+// Route::get('/admin/newbook', function () {
 
 
 
