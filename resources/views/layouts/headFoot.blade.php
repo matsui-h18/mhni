@@ -9,42 +9,44 @@
 
         /* 中身用のcss */
         .center{
-            width:1500px;
+            height:200px;
             margin: 0 auto;
             font-family:  'メイリオ','arial black';
+            background-color:#f5f5f5;
+            display:block;
         }
 
         /* ヘッダー：「ログアウト」の文字サイズ */
         .nav-link{
             text-align: right;
             font-size: 25px;
-        }
-
-        /* ヘッダー：「Home」の文字サイズ */
-        .navbar-nav{
-            font-size: 25px;
+            margin-right:200px;
+            margin-top:-100px;
         }
 
         /* BookMHNIのロゴ */
         #logo{
-            margin-top:50px;
+            padding-top: 40px;
             font-size:50px;
             text-align: center;
-            font-family:  serif,'arial black'; /* フォント変更する場合ここ */
+            font-family: "FuturaBold"; /* フォント変更する場合ここ */
         }
 
         /* BookMHNIのロゴ下の「書籍管理システム」 */
         #sub_logo{
             margin-bottom:30px;
-            font-size:20px;
+            font-size:25px;
             text-align: center;
             font-family:  serif,'arial black'; /* フォント変更する場合ここ */
         }
 
-        button{
-          background-color:#c1e4e9;
+        a:hover{
+          background-color:#00ced1;
         }
 
+        #header{
+            background-color:#f5f5f5;
+        }
         #footer{
           background-color: black; /* フッターの背景 */
           color:white; /* 文字色 */
@@ -60,27 +62,16 @@
     </style>
 </head>
 <body>
-  <div class="center">
-    <div id="logo">BookMHNI</div>
-        <div id="sub_logo">－書籍管理システム－</div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="d-flex justify-content-between w-100">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </div>
-            <div class="navbar-nav">
-              <a class="nav-link" href="#">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
 
-    @section('main')
-    @show
+<header>
+  <div class="center">
+        <div id="logo">BookMHNI</div>
+        <div id="sub_logo">－書籍管理システム－</div>
+        <a class="nav-link" href="#">Logout</a>
+  @section('main')
+  @show
   </div>
+</header>
 
   <div id="footer">
     お困りごとがありましたら、経理部（内線8番）まで
