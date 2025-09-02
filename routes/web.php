@@ -62,7 +62,7 @@ Route::post('admin/bookEditComplete',[AccController::class,'update']);
 Route::get('/admin/index2', [AccController::class, 'allshow'])
 ->middleware(['auth'])->name('support');
 
-Route::get('/normal/index', [LibraryController::class,'index'])
+Route::get('/normal/index', [NormalDbController::class, 'allshow'])
 ->middleware(['auth'])->name('dashboard');
 
 Route::post('isbnsearch', [BooksearchContoller::class, 'searchByIsbn'])

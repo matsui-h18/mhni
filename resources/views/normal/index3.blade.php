@@ -8,7 +8,11 @@
 <a href="{{ route('bookDetail', ['id' => $book->id])}}">
   <div class="book-table">
     <div class="book-info">
-      <img src="https://via.placeholder.com/100x120.png?text=Book" alt="本の画像" class="image-display">
+        @if ($book->image)
+        <img src="{{ $book->image }}" alt="本の画像" class="image-display">
+        @else
+        <img src="https://via.placeholder.com/100x120.png?text=Book" alt="本の画像" class="image-display">
+        @endif
       <div class="book-text">
         <h1>{{ $book->book_name }}</h1>
         {{ $book->author }}<br>
