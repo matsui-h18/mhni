@@ -92,7 +92,7 @@ Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.lo
 
 /*☆☆☆☆☆☆☆☆　以下、松井編集　☆☆☆☆☆☆☆☆*/
 
-Route::get('/', [NormalDbController::class, 'allshow']);
+Route::get('/aaa', [NormalDbController::class, 'allshow']);
 
 
 // 一般ユーザの本一覧を全件表示する
