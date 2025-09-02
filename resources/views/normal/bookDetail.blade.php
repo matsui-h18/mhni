@@ -79,11 +79,11 @@
         </div>
         <div name="comment" class="comment_content">
             良い本でした。
-        </div> 
+        </div>
         <div class="edit_del_btn">
             <a href="{{ route('commentEdit') }}" id="edit_btn">編集</a>
         <a href="{{ route('commentDelete') }}" id="del_btn">削除</a>
-    </div> 
+    </div>
 
             <form action="/normal/commentDelete" method="post">
                 @csrf
@@ -91,9 +91,7 @@
                 <input type="submit" value="削除" class="btn btn-danger">
             </form>
         </div>
-        @endif
         </div>
-        @endforeach
 
         <!-- <div class="edit_del_btn" style="display: flex; gap: 10px;">
 
