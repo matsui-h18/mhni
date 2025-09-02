@@ -17,15 +17,15 @@
 <!-- コメント編集画面 -->
 
 <h1>コメント変更画面</h1>
-<button type="button" class="btn btn-primary">変更</button>
 
 <div class="edit_del_btn" style="display: flex; gap: 10px;">
     <!-- 変更ボタンとデータベースから既存コメントを引用して表示-->
-    <form action="/normal/commentEditComplete" method="post">
+    <form action="{{ route('editComp') }}" method="post">
         @csrf
-        <input type="hidden" name="id" value="{{$comments->id}}"><br>
-    投稿者<input type="text" name="user_name" value="{{$record->user_name}}"><br>
-    コメント<textarea name="comment" class="form-control" required>{{ old('comment', $comment->content) }}</textarea>
+        <input type="hidden" name="id" value="{{$comment->id}}"><br>
+        <input type="hidden" name="book_id" value="{{ $book_id }}">
+    投稿者<input type="text" name="user_name" value="{{$comment->user->emp_name}}" readonly><br>
+    コメント<textarea name="comment" class="form-control" required>{{ old('comment', $comment->comment) }}</textarea>
         <input type="submit" value="変更" class="btn btn-warning">
     </form>
 

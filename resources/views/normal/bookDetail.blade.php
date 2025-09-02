@@ -74,6 +74,7 @@
         <form action="{{ route('commentEdit') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+            <input type="hidden" name="book_id" value="{{ $book->id }}">
             <input type="submit" value="編集" class="btn btn-warning">
         </form>
 

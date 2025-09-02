@@ -91,6 +91,12 @@ Route::post('/normal/delete',[LibraryController::class,'deleteCheck'])
 Route::post('/normal/commentAdd',[LibraryController::class,'addcheck'])
 ->name('commentAdd');
 
+Route::post(('/normal/commentEdit'),[LibraryController::class,'commentEdit'])
+->name('commentEdit');
+
+Route::post(('/normal/commentEditComplete'),[LibraryController::class,'updateComment'])
+->name('editComp');
+
 
 
 

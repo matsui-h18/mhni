@@ -21,7 +21,7 @@
     </form> --}}
 
     <div style="display: flex; gap: 10px;">
-        <form action="{{ route('comdel') }}">
+        <form action="{{ route('comdel') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book_id }}">

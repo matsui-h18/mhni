@@ -67,7 +67,6 @@ class LibraryController extends Controller
         $comment = Comment::find($request->comment_id);
         $book_id = $request->input('book_id');
         return view('normal.commentDelete', compact('comment', 'book_id'));
-
     }
 
     public function deleteComment(Request $request)
@@ -102,5 +101,35 @@ class LibraryController extends Controller
         $comment->save();
 
         return view('normal.commentComplete', compact('comment_text', 'book_id'));
+    }
+
+    public function commentEdit(Request $request)
+    {
+        $comment = Comment::find($request->comment_id);
+        $book_id = $request->input('book_id');
+        return view('normal.commentEdit', compact('comment', 'book_id'));
+    }
+
+    public function updateComment(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required|string|max:255',
+            'comment' => 'required|string|max:500',
+        ]);
+
+        $comment = Comment::find($request->id);
+        if ($comment) {
+            $comment->comment = $request->comment;
+            $comment->save();
+
+            // 詳細画面を直接表示
+            return view('normal.commentEditComplete', [
+                'book_id' => $request->input('book_id'),
+                'comment' => $comment,
+                'success' => 'コメントが更新されました。'
+            ]);
+        } else {
+            return redirect()->back()->with('error', 'コメントが見つかりません。')->withInput();
+        }
     }
 }
