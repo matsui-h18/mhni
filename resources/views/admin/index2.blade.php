@@ -11,7 +11,7 @@
 <div class="book-table">
     <!-- 左側：画像とテキスト -->
     <a href="{{ route('bookDetail', ['id' => $book->id])}}">
-        <div class="book-table">
+        <!--<div class="book-table">-->
             <div class="book-info">
                 @if ($book->image)
                 <img src="{{ $book->image }}" alt="本の画像" class="image-display">
@@ -24,7 +24,7 @@
                     {{ $book->pub_date }}<br>
                 </div>
             </div>
-        </div>
+        <!--</div>-->
     </a>
 
     <!-- 右側：ボタン -->

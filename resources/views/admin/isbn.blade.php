@@ -1,10 +1,13 @@
+@extends('layouts.headFoot')
+@section('title','タイトル設定する')
+@section('main')
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISBN入力</title>
+    <link rel="stylesheet" href="{{ asset('css/isbn.css') }}">
 </head>
 
 <body>
@@ -24,3 +27,4 @@
 </body>
 
 </html>
+@endsection
