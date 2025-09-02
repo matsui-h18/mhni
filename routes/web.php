@@ -9,7 +9,12 @@ use App\Http\Controllers\NormalDbController;
 
 Route::get('/', function () {
     return view('test-login');
+
 });
+
+
+
+
 //岩本
 Route::get('/normal/index', [NormalDbController::class, 'allshow'])->name('normal.index');
 
@@ -80,6 +85,8 @@ Route::post('/test-login', [TestLoginController::class, 'login'])->name('test.lo
 
 
 /*☆☆☆☆☆☆☆☆　以下、松井編集　☆☆☆☆☆☆☆☆*/
+
+Route::get('/normal/index33', [NormalDbController::class, 'allshow']);
 
 
 // 一般ユーザの本一覧を全件表示する

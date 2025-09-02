@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.headFoot')
+@section('title','コメント、おすすめ度入力画面')
+@section('main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>コメント、おすすめ度入力画面</title>
-    <link rel="stylesheet" href="css/sumple.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-</head>
+  <link rel="stylesheet" href="css/sumple.css">
 
-<body>
     <div class="book-display">
         <!-- 選択された本の表示 -->
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuxOkwIGXzevDS_lS9CceoaHfTetR75g0IILx0NEOKVlqv55oZqfly6TI&s" alt="本サンプル">
 
         <div id="info">
-            <h1 id="book_title" name="book_name">タイトル</h1>
-            <div id="book_etcinfo">
+            <h1 id="book_title" name="book_name">{{ $book->book_name }}</h1>
 
-                著者： {{ $book->author }} <br>
-                出版日： {{ $book->pub_date }} <br>
+            <div id="book_etcinfo">
+                著者： {{ $book->author }}<br>
+                出版日： {{ $book->pub_date }}<br>
             </div>
 
         </div>
@@ -42,17 +35,6 @@
                 </span>
             </div>
         </div>
-
-        <!-- 以下、おすすめ度トップダウンver
-        <select name="example" required>
-            <option value="">▼選択してください</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-        </select><br><br>
-         -->
 
         <!-- コメント入力欄 -->
         <div class="mb-3">
@@ -109,22 +91,36 @@
 
         <!-- <div class="edit_del_btn" style="display: flex; gap: 10px;">
 
+<<<<<<< HEAD
     <form action="/normal/commentEdit" method="post">
         @csrf
         <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+=======
+
+<div class="edit_del_btn" style="display: flex; gap: 10px;">
+    <!-- 編集ボタン -->
+    <form action="/normal/commentEdit" method="post">
+        @csrf
+        <input type="hidden" name="comment_id" value="">
+>>>>>>> 2af0b1d7b230c6ebb8887296878362d4213f7994
         <input type="submit" value="編集" class="btn btn-warning">
     </form>
 
         <form action="/normal/commentDelete" method="post">
             @csrf
-            {{-- <input type="hidden" name="comment_id" value="{{ $comment->id }}"> --}}
+            {{-- <input type="hidden" name="comment_id" value=""> --}}
             <input type="submit" value="削除" class="btn btn-danger">
         </form>
     </div> -->
 
 
+<<<<<<< HEAD
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+=======
+    </div>
+@endsection
+>>>>>>> 2af0b1d7b230c6ebb8887296878362d4213f7994
