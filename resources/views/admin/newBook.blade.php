@@ -32,6 +32,8 @@
         <input type="submit" id="button" value="登録" class="btn btn-primary new-book-btn">
     </form>
 
+    <a href="{{ route('support') }}" class="btn btn-secondary new-book-btn">戻る</a>
+
     <a href="{{ route ('isbn') }}">ISBN登録</a>
 
 @endsection

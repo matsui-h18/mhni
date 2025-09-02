@@ -31,9 +31,9 @@
         <h1>本当に削除しますか？</h1>
       <div class="button-group">
     <a href="{{ route('bookDeleteComplete',['id' => $book->id]) }}" class="btn btn-primary new-book-btn">はい</a>
-    <a href="{{ route('backToIndex2') }}" class="btn btn-secondary new-book-btn">いいえ</a>
+    <a href="{{ route('support') }}" class="btn btn-secondary new-book-btn">いいえ</a>
 </div>
-   
+
     </form>
 
 @endsection
