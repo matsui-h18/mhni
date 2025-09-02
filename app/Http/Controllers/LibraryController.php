@@ -27,7 +27,7 @@ class LibraryController extends Controller
 
         return view('normal.bookDetail', [
             'book' => $book,
-            'comments' => $comments,
+            'comment' => $comments,
         ]);
     }
 }
