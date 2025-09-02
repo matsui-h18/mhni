@@ -9,14 +9,16 @@ form {
 /* タイトルは中央揃えのままでOK */
 h1 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-bottom: 200px;
+
 }
 
 /* 入力欄のラベルとフィールドを左揃えにする */
 .info p {
     text-align: left;
     font-size: 18px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 /* 入力欄を幅いっぱいに広げて見やすく */
@@ -27,7 +29,15 @@ h1 {
     box-sizing: border-box;
 }
 
-
+/* ボタンは中央揃え */
+.new-book-btn {
+    display: block;
+    margin: 30px auto;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+}
 .button-group {
     display: flex;
     justify-content: center; /* 中央揃え */
@@ -36,11 +46,10 @@ h1 {
 }
 
 .new-book-btn {
-    display: block;
-    margin: 40px auto 0 auto; 
     font-size: 18px;
     padding: 10px 20px;
-    width: 200px;
+    width: 150px;
     height: 50px;
     text-align: center;
 }
+

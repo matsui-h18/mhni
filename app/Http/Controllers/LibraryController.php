@@ -13,10 +13,11 @@ class LibraryController extends Controller
         $data = [
             'records' => Book::all()
         ];
-        return view('normal.index', $data);
+        return view('normal.index3', $data);
     }
 
-    public function search(){
+    public function search()
+    {
         return view('admin.isbn');
     }
 
@@ -27,7 +28,36 @@ class LibraryController extends Controller
 
         return view('normal.bookDetail', [
             'book' => $book,
-            'comments' => $comments,
+            'comment' => $comments,
         ]);
+    }
+
+    public function edit($id)
+    {
+        if (!(empty($id))) {
+            $book = Book::find($id);
+            return view('admin.bookEdit', ['book' => $book]);
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function update(Request $req)
+    {
+        $book = Book::find($req->id);
+        $book -> book_name = $req->book_name;
+        $book -> author = $req->author;
+        $book -> pub_date = $req->pub_date;
+        $book -> isbn = $req->isbn;
+
+        $book -> save();
+        $data = [
+            'id' => $req->id,
+            'book_name' => $req->book_name,
+            'author' => $req->author,
+            'pub_date' => $req->pub_date,
+            'isbn' => $req->isbn
+        ];
+        return view('admin.bookEditComplete', $data);
     }
 }
