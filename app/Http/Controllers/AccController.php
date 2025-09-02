@@ -27,26 +27,12 @@ class AccController extends Controller
 
     // 全件表示用
     public function allshow(){
+        //DBから
         $data=[
             'books'=>Book::all()
         ];
         return view('admin.index2',$data);
     }
 
-    // // 本の情報編集用
-    // public function edit(Request $req){
-    //     $id=$req->id;
-    //     $data = [
-    //         // 押された
-    //     ]
-    //     return view('')
-    // }
-    // 本の情報編集用
-    public function edit(Request $req){
-        $id=$req->id;
-        $data = [
-            // 押された
-        ];
-        return view('');
-    }
+
 }

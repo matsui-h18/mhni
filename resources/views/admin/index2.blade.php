@@ -7,25 +7,25 @@
   <a href="{{ route('newBook') }}"><button class="btn btn-primary new-book-btn">新規登録</button></a>
 </div>
 
-@foreach ($books as $book)
+<!-- foreach ($books as $book) -->
   <div class="book-table">
     <!-- 左側：画像とテキスト -->
     <div class="book-info">
       <img src="https://via.placeholder.com/100x120.png?text=Book" alt="本の画像" class="image-display">
       <div class="book-text">
-        <h1>{{ $book->book_name }}</h1>
-        {{ $book->author }}<br>
-        {{ $book->pub_date }}<br>
+        <h1>{ book->book_name }</h1>
+        { book->author }<br>
+        { book->pub_date }<br>
       </div>
     </div>
 
     <!-- 右側：ボタン -->
     <div class="button-area">
-      <button class="btn btn-primary edit-btn" >編集</button>
-      <button class="btn btn-primary del-btn">削除</button>
+      <a href="{{ route('bookEdit') }}"><button class="btn btn-primary edit-btn" >編集</button></a>
+      <a href="{{ route('bookDelete') }}"><button class="btn btn-primary del-btn">削除</button>
     </div>
   </div>
-@endforeach
+<!-- endforeach -->
 
 
 @endsection
