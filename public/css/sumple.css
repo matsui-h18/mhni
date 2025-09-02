@@ -1,80 +1,94 @@
 @charset "utf-8";
 
 /* 全体にかかっているcss */
-body{
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;         /* 横方向の中央揃え */
-    justify-content: flex-start; /* 縦方向の揃え（必要に応じて center に変更） */
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+.detailBody{
+    max-width: 1200px;
+    margin: 0 auto; /* ← これが中央揃えのポイント */
+    padding: 20px;   /* 任意：内側に余白を追加したい場合 */
 }
 
 /* 画像に対するサイズ */
-img{
-    max-width:500px;
-    max-height:500px;
-}
-
-form {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-#book_etcinfo{
-    text-align: left;
-}
-
-/* 本のタイトル */
-#book_title{
-    margin-bottom:10px;
+.image-display{
+    width:300px;
+    height:300px;
+    object-fit: cover;
 }
 
 /* 本のタイトルと他情報 */
 .book-display {
   display: flex;
+  font-size: 20px;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
-  margin: 40px auto;
-  max-width: 800px; /* 他の要素と揃える */
+  margin: 60px auto;
+  max-width: 1000px; /* 他の要素と揃える */
   max-height: 500px;
-  width: 100%;
   padding-left: 20px; /* 左側に空間を追加 */
 }
 
-form,
+/*　おすすめ度div */
+form{
+    width:1000px;
+    font-size: 30px;
+    margin-left: 110px;
+}
+
+/* 文字「おすすめ度」と星 */
+.review{
+  display: flex;
+  align-items: center;
+  gap: 20px; /* おすすめ度と星の間隔 */
+  margin-bottom: 20px;
+}
+
+#recommend-text {
+  font-size: 24px;
+  white-space: nowrap; /* 折り返し防止 */
+}
+
+
+.stars{
+    margin-left:20px;
+    margin-bottom:10px;
+}
+
+/* コメント表示 */
 .all_comment {
   max-width: 800px;
   margin: 20px auto;
   width: 100%;
+  border:1px solid black;
 }
 
-/* 投稿用ボタン装飾 */
-.btn.btn-primary{
-    font-size: 20px;
-}
-
-
-/* コメント */
-.all_comment{
+/* 投稿ボタン配置 */
+#my_comment_post{
+    display: flex;
+    justify-content: flex-end; /* ← 右寄せ */
     width: 100%;
-    max-width: 800px;
-    margin: 50px auto;
-    margin-bottom: 10px;
-    margin-top:0px;
-    padding: 20px;
-    border: solid 1px #ccc;
-    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* 投稿ボタンそのもの */
+#post_btn{
+  font-size: 30px;       /* 文字サイズを大きく */
+  padding: 12px 24px;    /* 上下・左右の余白を広く */
+  border: 1px solid white;
+  background-color: #afeeee;
+  transition-duration: 0.3s;
+}
+
+/* 新規登録ボタンにホバーした時 */
+#post_btn:hover{
+  background-color: #00ced1;
+  color:white;
 }
 
 /* 他の人のおすすめ度 */
 #other_star{
-    margin-left: auto;
+    
 }
 
 /* 名前とおすすめ度のdiv */
@@ -84,69 +98,47 @@ form,
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding-bottom: 10px;
-    border-bottom: 1px solid grey;
+    padding: 20px 20px 0px;
 }
 
 
 /* コメント内容表示 */
 .comment_content{
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
     height: auto;
-    margin: 0;
-    margin-top: 20px;
-    text-align: left;
+    font-size: 50px;
+    padding: 0px 20px 0px;
 }
 
-
-#exampleFormControlTextarea1{
-    width:800px;
-    margin:0 auto;
-}
-
-.form-label,
-#exampleFormControlTextarea1 {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* 投稿ボタン */
-#my_comment_post{
-    text-align: right;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 30px;
-}
 
 /* 編集ボタンと削除ボタン用の位置 */
-.edit_del_btn{
-    display: flex;
-    justify-content: flex-end; /* 子要素を右揃え */
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+.edit_del_btn {
+  display: flex;
+  margin-left: auto;       /* 全体を右端に寄せる */
+  margin-top: 20px;
 }
 
-/* 編集ボタン */
-#edit_btn{
-    margin-right:10px;
-}
 
-/* 削除ボタン */
-#del_btn{
-    margin-left:10px;
-    margin-right:10px;
+
+
+/* 編集ボタン、削除ボタンの位置等 */
+.edit_btn,
+.del_btn{
+  font-size: 30px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  background-color: #afeeee;
+  transition-duration: 0.3s;
+  /* margin: 0 auto; ← これは削除 */
 }
 
 
 /* 星 */
 .stars span{
   display: flex;               /* 要素をフレックスボックスにする */
-  flex-direction: row-reverse; /* 星を逆順に並べる */
-  justify-content: flex-end;   /* 逆順なので、左寄せにする */
+  flex-direction: row-reverse   ;
+  justify-content: flex-start;   /* 逆順なので、左寄せにする */
 }
 
 .stars input[type='radio']{
@@ -155,7 +147,7 @@ form,
 
 .stars label{
   color: #D2D2D2;              /* 未選択の星をグレー色に指定 */
-  font-size: 30px;             /* 星の大きさを30pxに指定 */
+  font-size: 50px;             /* 星の大きさを30pxに指定 */
   padding: 0 5px;              /* 左右の余白を5pxに指定 */
   cursor: pointer;             /* カーソルが上に乗ったときに指の形にする */
 }
