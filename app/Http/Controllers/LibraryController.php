@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LibraryController extends Controller
@@ -28,7 +29,7 @@ class LibraryController extends Controller
 
         return view('normal.bookDetail', [
             'book' => $book,
-            'comment' => $comments,
+            'comments' => $comments,
         ]);
     }
 
@@ -45,12 +46,12 @@ class LibraryController extends Controller
     public function update(Request $req)
     {
         $book = Book::find($req->id);
-        $book -> book_name = $req->book_name;
-        $book -> author = $req->author;
-        $book -> pub_date = $req->pub_date;
-        $book -> isbn = $req->isbn;
+        $book->book_name = $req->book_name;
+        $book->author = $req->author;
+        $book->pub_date = $req->pub_date;
+        $book->isbn = $req->isbn;
 
-        $book -> save();
+        $book->save();
         $data = [
             'id' => $req->id,
             'book_name' => $req->book_name,
@@ -59,5 +60,47 @@ class LibraryController extends Controller
             'isbn' => $req->isbn
         ];
         return view('admin.bookEditComplete', $data);
+    }
+
+    public function deleteCheck(Request $request)
+    {
+        $comment = Comment::find($request->comment_id);
+        $book_id = $request->input('book_id');
+        return view('normal.commentDelete', compact('comment', 'book_id'));
+
+    }
+
+    public function deleteComment(Request $request)
+    {
+        $comment = Comment::find($request->comment_id);
+        if ($comment) {
+            $comment->delete();
+            $book_id = $request->input('book_id');
+            return view('normal.commentDeleteComplete', compact('book_id'));
+        } else {
+            return redirect()->back()->with('error', 'コメントが見つかりません。');
+        }
+    }
+
+    public function addCheck(Request $req)
+    {
+        $req->validate([
+            'review' => 'required|in:1,2,3,4,5',
+            'comment' => 'required|max:500',
+            'book_id' => 'required|integer|exists:books,id',
+        ]);
+
+        $evaluation = $req->input('review');
+        $comment_text = $req->input('comment');
+        $book_id = $req->input('book_id');
+
+        $comment = new Comment();
+        $comment->book_id = $book_id;
+        $comment->user_id = Auth::id();
+        $comment->evaluation = $evaluation;
+        $comment->comment = $comment_text;
+        $comment->save();
+
+        return view('normal.commentComplete', compact('comment_text', 'book_id'));
     }
 }

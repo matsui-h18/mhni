@@ -26,14 +26,14 @@
 </div>
 
 <!-- 入力画面 -->
-<form action="" method="post">
+<form action="{{ route('commentAdd') }}" method="post">
     @csrf
     <!-- おすすめ度選択画面 -->
     おすすめ度：
     <div class="review">
         <div class="stars">
             <span>
-                <input id="review01" type="radio" name="review" value="1"><label for="review01">★</label>
+                <input id="review01" type="radio" name="review" value="1" required><label for="review01">★</label>
                 <input id="review02" type="radio" name="review" value="2"><label for="review02">★</label>
                 <input id="review03" type="radio" name="review" value="3"><label for="review03">★</label>
                 <input id="review04" type="radio" name="review" value="4"><label for="review04">★</label>
@@ -45,25 +45,18 @@
     <!-- コメント入力欄 -->
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">コメント入力</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
     </div>
+
+    <input type="hidden" name="book_id" value="{{ $book->id }}">
 
     <!-- 投稿ボタン -->
     <div id="my_comment_post">
         <input type="submit" value="投稿" class="btn btn-primary">
     </div>
-    {{-- 入力画面 --}}
-    {{-- <form action=" {{ route('commentAdd') }}" method="post">
-    おすすめ度：<select name="evaluation" required>
-    <option value=""selected>▼選択してください</option>
-    <option value="おすすめ度1">☆☆☆☆★</option>
-    <option value="おすすめ度2">☆☆☆★★</option>
-    <option value="おすすめ度3">☆☆★★★</option>
-    <option value="おすすめ度4">☆★★★★</option>
-    <option value="おすすめ度5">★★★★★</option>
-    </select><br><br> --}}
-
 </form>
+
+
 {{-- 岩本　データベースから他社員　全件引用して表示 --}}
 <!-- 他社員のコメント表示 -->
 <div class="all_comment">
@@ -87,6 +80,7 @@
         <form action="{{ route('commentDelete') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+            <input type="hidden" name="book_id" value="{{ $book->id }}">
             <input type="submit" value="削除" class="btn btn-danger">
         </form>
     </div>
