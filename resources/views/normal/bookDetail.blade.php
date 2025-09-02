@@ -53,7 +53,7 @@
         <input type="submit" value="投稿" class="btn btn-primary">
     </div>
     {{-- 入力画面 --}}
-    {{-- <form action="commentComplete.php" method="post">
+    {{-- <form action=" {{ route('commentAdd') }}" method="post">
     おすすめ度：<select name="evaluation" required>
     <option value=""selected>▼選択してください</option>
     <option value="おすすめ度1">☆☆☆☆★</option>
@@ -78,13 +78,13 @@
     <!-- 編集・削除ボタン（自分のコメントだけ表示したいなら条件追加） -->
     @if (Auth::id() === $comment->user_id)
     <div class="edit_del_btn" style="display: flex; gap: 10px;">
-        <form action="/normal/commentEdit" method="post">
+        <form action="{{ route('commentEdit') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="submit" value="編集" class="btn btn-warning">
         </form>
 
-        <form action="/normal/commentDelete" method="post">
+        <form action="{{ route('commentDelete') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="submit" value="削除" class="btn btn-danger">
