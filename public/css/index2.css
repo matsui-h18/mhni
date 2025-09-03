@@ -1,4 +1,3 @@
-お気に入りのアプリの中から AI を直接お試しください。 … Gemini を使用して下書きを生成したり、コンテンツの質を高めたりすることができます。さらに、Gemini Pro では Google の次世代 AI にアクセスできます。1 か月間、￥2,900 ￥0
 @charset "utf-8";
 
 /* ページ全体のレイアウト設定 */
@@ -12,8 +11,9 @@ body {
   /*justify-content: space-between; /* 左右に分けて配置 */
   align-items: flex-start; /* 垂直方向の中央揃え */
   width: 1200px; /* 幅を固定 */
-  border: solid 1px black; /* 黒い枠線 */
-  margin: 10px auto; /* 上下に余白、中央寄せ */
+  border: solid 1px gray; /* 黒い枠線 */
+  /* border-radius: 20px; */
+  margin: 20px auto; /* 上下に余白、中央寄せ */
   padding: 10px; /* 内側の余白 */
 }
 
@@ -23,8 +23,8 @@ body {
   justify-content: flex-start;
   gap: 20px; /*要素間の隙間*/
   align-items: flex-start;
-  gap:20px;
   flex-grow: 1; /* 垂直方向の中央揃え */
+
 }
 
 /* 本のテキスト情報（タイトル・著者・出版日） */
@@ -75,8 +75,8 @@ body {
   height: 200px; /* 高さを固定 */
   max-width: 500px; /* 最大幅を指定 */
   max-height: 500px; /* 最大高さを指定 */
-  border: solid 1px black; /* 黒い枠線 */
-  margin-left:0px;
+  /* border: solid 1px gray; 黒い枠線 */
+  margin-left:10px;
   object-fit: cover;
 }
 
@@ -104,30 +104,69 @@ body {
   text-align: left;         /* ← テキストを左寄せ */
   width: 800px;             /* ← 幅を固定して左端に揃える */
 }
-.book-info > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* ← 子要素を左端に揃える！ */
-  text-align: left;          /* ← テキストの揃えも左に */
-                /* ← スペースを自然に広げる */
-}
-.book-info h1,
-.book-info p {
-  margin: 0;
-}
+
 .book-table a {
   text-decoration: none; /* 下線を消す */
-           /* 親要素の文字色を引き継ぐ（必要なら） */
-   color: black;         
-}
-a {
-  text-decoration: none;
-}
-.book-table:hover {
-  background-color: #e0ffff; /* 薄い水色に変更（好みに応じて調整OK） */
-  transition: background-color 0.3s ease; /* なめらかに変化させる */
+  color: black;         
 }
 
 .book-text {
   color: black;
+}
+
+.bookName{
+  margin:10px 0px 10px 0px;
+}
+
+/* 以下、ホバーした時のアニメーション */
+.book-table.slide {
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.book-table.slide::after {
+  background: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+.book-table.slide:hover {
+  color: #fff;
+  border-color: #fff; /* ← 枠線の色を白に変更 */
+}
+.book-table.slide:hover::after {
+  transform: scale(1, 1);
+}
+
+.book-table.slide:hover a {
+  color: #fff;
+}
+
+.book-table.slide:hover .bookName,
+.book-table.slide:hover .book-text {
+  color: #fff;
+}
+
+.book-table.slide.skew::after {
+  transform: skewY(-10deg) scale(1, 0);
+  height: 500px; /* ボタンの高さによって調整*/
+  border-color: white;
+}
+.book-table.slide.skew:hover::after {
+  transform: skewY(-10deg) scale(1, 1);
+}
+
+.book-table.slide a,
+.book-table.slide .bookName,
+.book-table.slide .book-text {
+  transition: color 0.3s ease;
 }
