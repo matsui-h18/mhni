@@ -33,8 +33,6 @@ h1 {
     justify-content: center; /* 中央揃え */
     gap: 30px;                /* ボタン間のスペース */
     margin: 40px auto;
-    margin-top: 40px;
-    margin-bottom: 100px;
 }
 
 .new-book-btn {
