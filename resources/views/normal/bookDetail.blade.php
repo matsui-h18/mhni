@@ -25,6 +25,12 @@
         <div id="book_etcinfo">
             著者： {{ $book->author }}<br>
             出版日： {{ $book->pub_date }}<br>
+            @if($average === null || $average == 0)
+            平均評価： まだ評価はありません
+            @else
+            平均評価： {{ number_format($average, 1) }}
+            @endif
+            <br>
             <!-- 説明ボタン -->
 <button onclick="openModal()">本の説明を見る</button>
         </div>
@@ -49,7 +55,7 @@
         </div>
     </div>
 
-    
+
 
 <!-- モーダル本体 -->
 <div id="bookModal" class="modal">
