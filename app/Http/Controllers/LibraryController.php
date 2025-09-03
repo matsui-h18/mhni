@@ -132,4 +132,18 @@ class LibraryController extends Controller
             return redirect()->back()->with('error', 'コメントが見つかりません。')->withInput();
         }
     }
+
+    public function research(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $books = Book::query();
+
+        if (!empty($keyword)) {
+            $books->where('book_name', 'like', "%{$keyword}%")
+                ->orWhere('author', 'like', "%{$keyword}%");
+        }
+
+        return view('book.index', ['books' => $books->get()]);
+    }
 }

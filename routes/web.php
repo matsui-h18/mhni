@@ -81,6 +81,11 @@ Route::get('/bookEdit/{id}', [LibraryController::class, 'edit'])
 Route::post('/bookUpdate', [LibraryController::class, 'update'])
 ->name('bookUpdate');
 
+Route::get('/books/search', [LibraryController::class, 'search'])->name('bookSearch');
+Route::get('/books', [LibraryController::class, 'index'])->name('bookIndex1');
+Route::get('/books', [LibraryController::class, 'index'])->name('bookIndex2');
+
+
 // コメント
 Route::post('/normal/deleteComplete',[LibraryController::class,'deleteComment'])
 ->name('comdel');
