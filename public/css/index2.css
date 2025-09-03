@@ -76,6 +76,7 @@ body {
   max-width: 500px; /* 最大幅を指定 */
   max-height: 500px; /* 最大高さを指定 */
   /* border: solid 1px gray; 黒い枠線 */
+  
   margin-left:10px;
   object-fit: cover;
 }
