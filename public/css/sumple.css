@@ -76,16 +76,16 @@ form{
 #post_btn{
   font-size: 30px;       /* 文字サイズを大きく */
   padding: 12px 24px;    /* 上下・左右の余白を広く */
-  border: 1px solid white;
-  background-color: #afeeee;
-  transition-duration: 0.3s;
+  /* border: 1px solid white; */
+  /* background-color: #afeeee; */
+  /* transition-duration: 0.3s; */
 }
 
 /* 新規登録ボタンにホバーした時 */
-#post_btn:hover{
-  background-color: #00ced1;
+/* #post_btn:hover{ */
+  /* background-color: #00ced1;
   color:white;
-}
+} */
 
 /* 他の人のおすすめ度 */
 #other_star{
