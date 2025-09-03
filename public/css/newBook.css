@@ -1,12 +1,80 @@
 @charset "utf-8";
-button{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
 
+form {
+    max-width: 600px;
+    margin: 30px auto; /* 上下と横中央揃え */
+    padding: 20px;
 }
-button.p{
-    border: solid 1px black;
-    padding: 5px;
-    margin: 20px;
+
+/* タイトルは中央揃えのままでOK */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 入力欄のラベルとフィールドを左揃えにする */
+.info p {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+/* 入力欄を幅いっぱいに広げて見やすく */
+.info input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    gap: 30px;                /* ボタン間のスペース */
+    margin: 40px auto;
+}
+
+.new-book-btn {
+    display: block;
+    margin: 40px auto 0 auto;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+.new-book-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin: 0; /* 横並びにするため margin をリセット */
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+.RegistrationandReturn {
+  display: flex;
+  flex-direction: row; /* 横並びにする */
+  justify-content: center; /* 中央寄せ（任意） */
+  gap: 30px; /* ボタンの間隔を広げる */
+  margin-top: 30px;
+}
+
+.isbn-link {
+  text-align: center; /* 中のインライン要素を中央寄せ */
+  margin-top: 50px;
+}
+
+.isbn-link a {
+  display: inline-block; /* text-align: center が効くようにする */
+}
+
+/* textarea入力フォーム用 */
+.info textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
 }

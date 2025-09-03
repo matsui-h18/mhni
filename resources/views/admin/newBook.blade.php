@@ -1,42 +1,43 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>本の新規登録</title>
-    <link rel="stylesheet" href="css/newBook.css">
-</head>
-<body>
+@extends('layouts.headFoot')
+@section('title','本の新規登録')
+@section('main')
+<link rel="stylesheet" href="{{ asset('css/newBook.css') }}">
     <h1>本の新規登録画面</h1>
-    <hr/>
 
-    <form method="POST" action="/book/store">
+    <form  action="/admin/newBookComplete" method="POST" >
         @csrf
 
-        <div>
-            <label for="book_name">書名：</label><br>
-            <input type="text" id="book_name" name="book_name" maxlength="50" required>
-        </div>
+        <div class="info">
+            <p>
+                本の名前：
+                <input type="text" id="book_name" name="book_name" maxlength="50" required>
+            </p>
         <br>
-
-        <div>
-            <label for="author">著者：</label><br>
-            <input type="text" id="author" name="author" maxlength="16">
-        </div>
+            <p>
+                著者：
+                <input type="text" id="author" name="author" maxlength="16">
+            </p>
         <br>
-
-        <div>
-            <label for="pub_date">出版日：</label><br>
-            <input type="date" id="pub_date" name="pub_date">
-        </div>
+            <p>
+                出版日：
+                <input type="date" id="pub_date" name="pub_date">
+            </p>
         <br>
-
-        <div>
-            <label for="isbn">ISBN（13桁）：</label><br>
-            <input type="number" id="isbn" name="isbn" required>
+            <p>
+                ISBN（13桁）：
+                <input type="number" id="isbn" name="isbn" required>
+            </p>
         </div>
-        <br>
+        <div class="isbn-link">
+        <a href="{{ route ('isbn') }}">ISBN登録</a>
+        </div>
 
-        <button type="submit"id="button">登録</button>
+        <div class="RegistrationandReturn">
+        <input type="submit" id="button" value="登録" class="btn btn-primary new-book-btn">
     </form>
-</body>
-</html>
+
+    <a href="{{ route('support') }}" class="btn btn-secondary new-book-btn">戻る</a>
+    </div>
+
+
+@endsection

@@ -12,10 +12,10 @@ class BooksearchContoller extends Controller
         $isbn = $request->input('isbn');
 
         if (empty($isbn)) {
-            return response()->json(['error' => 'ISBNコードを入力してください'], 400);
+            return redirect()->back()->with('error', 'ISBNコードを入力してください');
         }
 
-        $client = new Client();
+        $client = new \GuzzleHttp\Client();
         $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . urlencode($isbn);
 
         try {
@@ -28,15 +28,45 @@ class BooksearchContoller extends Controller
 
             $book = $body['items'][0]['volumeInfo'];
 
-            return response()->json([
-                'title' => $book['title'] ?? '不明',
-                'authors' => $book['authors'] ?? [],
-                'publishedDate' => $book['publishedDate'] ?? [],
-                'description' => $book['description'] ?? [],
-                'thumbnail' => $book['imageLinks']['thumbnail'] ?? null,
+            return view('admin.isbnsearchresult', [
+                'book_name' => $book['title'] ?? '不明',
+                'author' => $book['authors'] ?? ['不明'],
+                'pub_date' => $book['publishedDate'] ?? '不明',
+                'content' => $book['description'] ?? '説明なし',
+                'image' => $book['imageLinks']['thumbnail'] ?? null,
+                'isbn' => $isbn,
             ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => '検索中にエラーが発生しました'], 500);
+            return redirect()->back()->with('error', '検索中にエラーが発生しました');
         }
+    }
+
+    public function store(Request $request)
+    {
+        // タイトルが「不明」の場合は登録しない
+        if ($request->book_name === '不明') {
+            return redirect()->route('isbn')->with('error', 'タイトルが不明の書籍は登録できません');
+        }
+
+        // ISBNで重複チェック
+        $exists = \App\Models\Book::where('isbn', $request->isbn)->exists();
+
+        if ($exists) {
+            return redirect()->route('isbn')->with('message', 'このISBNの書籍はすでに登録されています');
+        }
+
+        // 登録処理
+        \App\Models\Book::create([
+            'isbn' => $request->isbn,
+            'book_name' => $request->book_name,
+            'author' => $request->author,
+            'pub_date' => $request->pub_date,
+            'content' => $request->content,
+            'image' => $request->image,
+        ]);
+        // ここを完了画面につなげる
+        return view('admin.newBookComplete', [
+            'message' => '書籍を登録しました'
+        ]);
     }
 }

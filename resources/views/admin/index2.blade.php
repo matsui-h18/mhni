@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>書籍登録</title>
-<link rel="stylesheet" href="css/index2.css">
-</head>
-<body>
-<h2>書籍新規登録</h2>
-<hr>
+@extends('layouts.headFoot')
+@section('title','書籍新規登録')
+@section('main')
+<link rel="stylesheet" href="{{ asset('css/index2.css') }}">
+<!-- 上記CSSはadmin/index3と同じなため注意 -->
 
-<button class="btn">新規登録</button>
+<div id="new_btn">
+    <a href="{{ route('newBook') }}"><button class="btn btn-primary new-book-btn">新規登録</button></a>
+</div>
 
-<table class="book-table">
-    <tr>
-    <td>
-      <img src="https://via.placeholder.com/100x120.png?text=Book" alt="本の画像" class="image-display">
-    </td>
-    <td>
-      <label for="title" class="field-label">タイトル：</label>
-      <div class="input-button-wrapper">
-      <input type="text" id="title" value="吾輩は猫である" class="field-input">
+@foreach ($books as $book)
+<div class="book-table slide skew">
+    <!-- 左側：画像とテキスト -->
+    <a href="{{ route('bookDetail', ['id' => $book->id])}}">
+        <!--<div class="book-table">-->
+            <div class="book-info">
+                @if ($book->image)
+                <img src="{{ $book->image }}" alt="本の画像" class="image-display">
+                @else
+                <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
+                @endif
+                <div class="">
+                    <h1 class="bookName">{{ $book->book_name }}</h1>
+                    {{ $book->author }}<br>
+                    {{ $book->pub_date }}<br>
+                </div>
+            </div>
+        <!--</div>-->
+    </a>
 
-     <!--<label for="author" class="field-label">著作者：</label>
-      <input type="text" id="author" value="夏目漱石" class="field-input">
+    <!-- 右側：ボタン -->
+    <div class="button-area">
+        <a href="{{ route('bookEdit', ['id' => $book->id]) }}"><button class="btn btn-primary edit-btn">編集</button></a>
+        <a href="{{ route('bookDelete', ['id' => $book->id]) }}"><button class="btn btn-primary del-btn">削除</button></a>
+    </div>
+</div>
+@endforeach
 
-      <label for="year" class="field-label">出版年：</label>
-      <input type="number" id="year" value="1905" class="field-input">-->
 
-      <div class="button-area">
-        <button class="btn">編集</button>
-        <button class="btn">削除</button>
-        </div>
-      </div>
-    </td>
-  </tr>
-</table>
-
-</body>
-</html>
+@endsection

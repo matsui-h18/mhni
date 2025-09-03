@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+  /* 中身用のcss */
+    body{
+      font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+    }
+
+  /* ヘッダーの色 */
+    header{
+      background-color:#f5f5f5;
+    }
+
+
+
+/* ロゴ中央寄せ */
+  #logo{
+    text-align: center;
+    font-size:35px;
+    /* padding-top:50px; */
+    /* margin-bottom:100px; */
+  }
+
+/* ヘッダー */
+  .header-container {
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f5;
+  height: 100px;
+  padding-top: 250px;
+}
+
+
+
+/* ログアウトリンクを右上に配置 */
+.logout-area {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+
+}
+
+/* 「logout」の文字 */
+.logout-text {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  margin-right: 50px;
+  padding:10px 30px;
+  border-radius: 15px;
+  transition: letter-spacing 0.3s;
+  background-image: linear-gradient(#000, #000);
+  background-repeat: no-repeat;
+  background-position: bottom right; /* 下線の初期位置 */
+  background-size: 0 1px; /* 下線のサイズ（横幅、高さ） */
+  transition: background-size 0.3s;
+}
+
+/* 「logout」ボタンの上にマウスを載せたら */
+.logout-text:hover{
+  background-position: bottom left; /* 下線のホバー時位置 */
+  background-size: 100% 1px; /* 下線の横幅を100%にする */
+}
+
+/* ロゴ画像（BookMHNI）+書籍管理システムの文字を中央に配置 */
+.logo-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 30px;
+}
+
+/* 「BookMHNI」のロゴ画像 */
+#logoImg {
+  width: 500px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* フッター */
+footer{
+  background-color: black; /* フッターの背景 */
+  height: 150px;
+  text-align: center;
+  display: flex; /* Flexboxを有効にする */
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+}
+
+/* フッター内の文字 */
+#help{
+  color:white; /* 文字色 */
+  font-size: 30px;  
+}

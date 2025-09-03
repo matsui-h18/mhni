@@ -1,92 +1,175 @@
 @charset "utf-8";
 
+/* ページ全体のレイアウト設定 */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  flex-direction: column;
-  font-family: sans-serif;
+
 }
 
-/* ���Е\���e�[�u�� */
+/* 本の情報を表示する枠 */
 .book-table {
-  border-collapse: collapse;
-  width: 600px;
-  max-width: 600px;
-  margin-top: 20px;
-  table-layout: fixed;
+  display: flex; /* 子要素を横並びにする */
+  /*justify-content: space-between; /* 左右に分けて配置 */
+  align-items: flex-start; /* 垂直方向の中央揃え */
+  width: 1200px; /* 幅を固定 */
+  /* border: solid 1px gray; 黒い枠線 */
+  /* border-radius: 20px; */
+  margin: 30px auto; /* 上下に余白、中央寄せ */
+  padding: 20px; /* 内側の余白 */
 }
 
-.book-table td,
-.book-table th {
-  border: 1px solid black;
-  padding: 8px;
-  vertical-align: top;
+/* 本の画像とテキストをまとめる枠 */
+.book-info {
+  display: flex; /* 横並びにする */
+  justify-content: flex-start;
+  gap: 20px; /*要素間の隙間*/
+  align-items: flex-start;
+  flex-grow: 1; /* 垂直方向の中央揃え */
+
 }
 
-.book-table td:first-child {
-  width: 120px; /* �摜�p�� */
+/* 本のテキスト情報（タイトル・著者・出版日） */
+.book-text p {
+  margin: 4px 0; /* 上下の余白を少しだけ設定 */
 }
 
-/* �{�^������ */
-.btn {
-  width: 80px;
-  height: 40px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: #9ACD32; /* ���� */
-  transition: background-color 0.3s ease;
+/* 編集・削除ボタンの配置 */
+.button-area {
+  display: flex; /* フレックスボックスで並べる */
+  flex-direction: column;
+  /*justify-content: flex-start;*/
+  /*align-items: flex-end; /* 縦並びにする */
+  gap: 8px; /* ボタン間の隙間 */
+  /*margin-left:225px;*/
+  margin-top: 15px;
+  margin-left: 5px;
+
 }
 
-.btn:hover {
-  background-color: #7BAF1F;
+/* 新規登録ボタンの範囲*/
+#new_btn {
+  margin: 30px 0px; /* 上下に余白を追加*/
+  display: flex;
+  justify-content: center; /* 横方向の中央寄せ*/
 }
 
-/* ���̓t�B�[���h */
-.field-label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
+/* 新規登録ボタン */
+.new-book-btn {
+  font-size: 50px;       /* 文字サイズを大きく*/
+  padding: 12px 24px;    /* 上下・左右の余白を広く*/
+  width: 300px;          /* ボタンの横幅を指定（任意）*/
+  height: 100px;          /* ボタンの高さを指定（任意）*/
+  margin-top: 40px;      /* 上に余白 */
+  margin-bottom: 40px;
 }
 
-.field-input {
-  width: 100%;
-  flex-grow: 1;
-  box-sizing: border-box;
-}
+/* 新規登録ボタンにホバーした時
+.new-book-btn:hover{
+  background-color: #00ced1;
+  color:white;
+} */
 
-/* �摜�\�� */
+/* 本の画像の表示スタイル */
 .image-display {
-  width: 100px;
-  height: 120px;
+  width:200px;
+  height: 200px; /* 高さを固定 */
+  max-width: 500px; /* 最大幅を指定 */
+  max-height: 500px; /* 最大高さを指定 */
+  margin-left:10px;
   object-fit: cover;
 }
 
-/* ���͗��ƃ{�^���������� */
-.input-button-wrapper {
+/* 編集、削除ボタン */
+.edit-btn,
+.del-btn{
+    font-size: 20px;       /* 文字サイズを大きく*/
+    padding: 12px 24px;    /* 上下・左右の余白を広く*/
+    width: 100px;          /* ボタンの横幅を指定（任意)*/
+    height: 60px;          /* ボタンの高さを指定（任意）*/
+    margin: 10px; /* 外側の余白*/
+}
+
+/* 編集、削除ボタンにホバーした時 */
+.edit-btn:hover,
+.del-btn:hover,
+.new-book-btn:hover{
+  background-color: white;
+  color:black;
+}
+
+.book-info > div {
   display: flex;
-  flex-direction: row; /* ������ */
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;         /* ← テキストを左寄せ */
+  width: 800px;             /* ← 幅を固定して左端に揃える */
+}
+
+.book-table a {
+  text-decoration: none; /* 下線を消す */
+  color: black;         
+}
+
+.book-text {
+  color: black;
+}
+
+.bookName{
+  margin:10px 0px 10px 0px;
+}
+
+/* 以下、ホバーした時のアニメーション */
+.book-table.slide {
+  background: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.book-table.slide::after {
+  /*background: #4169e1; /*紫に近い青←ボタンの色に合ってるのはこれ？ */
+  /*background: #4682b4; /*暗め淡い青 */
+  background: #1e90ff; /*明るめの青←ボタンの色に合ってるのはこれ？ */
+  /*background:#89c3eb; /*淡い薄めの青 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
   width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: .4s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+.book-table.slide:hover {
+  color: #fff;
+  border-color: #fff; /* ← 枠線の色を白に変更 */
+}
+.book-table.slide:hover::after {
+  transform: scale(1, 1);
 }
 
-/* �{�^���G���A�i�c���тŉE���ɔz�u�j */
-.button-area {
-  display: flex;
-  flex-direction: column; /* �c���� */
-  gap: 8px;
-  margin-left: 8px; /* ���͗��Ƃ̌��� */
+.book-table.slide:hover a {
+  color: #fff;
+  text-decoration: none; /* ← ホバー時も下線を消す */
 }
 
-/* ��؂�� */
-hr {
-  width: 80%;
-  border: none;
-  border-bottom: 2px solid #000;
-  margin: 20px 0;
+.book-table.slide:hover .bookName,
+.book-table.slide:hover .book-text {
+  color: #fff;
+}
+
+.book-table.slide.skew::after {
+  transform: skewY(-10deg) scale(1, 0);
+  height: 500px; /* ボタンの高さによって調整*/
+  border-color: white;
+}
+.book-table.slide.skew:hover::after {
+  transform: skewY(-10deg) scale(1, 1);
+}
+
+.book-table.slide a,
+.book-table.slide .bookName,
+.book-table.slide .book-text {
+  transition: color 0.5s ease;
 }
