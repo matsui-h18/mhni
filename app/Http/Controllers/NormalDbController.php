@@ -9,7 +9,7 @@ use App\Models\User;
 
 class NormalDbController extends Controller
 {
- 
+
     // public function deleteComment(Request $request){
     //     $commentId = $request->input('comment_id');
     //     // コメントIDが提供されていない場合の処理
@@ -51,9 +51,9 @@ class NormalDbController extends Controller
     // {
     // // 編集画面へリダイレクト or 編集処理
     // $commentId = $request->input('comment_id');
-    
+
     //編集画面にはidを受け取り、既にあるコメントを保持して表示させたいがエラーがでるのでコメントアウト
-    
+
     // if($request ->isMethod('post')){
     //        $id=$request->comment_id;
     //        $data=[
@@ -92,7 +92,7 @@ class NormalDbController extends Controller
     // $commentId = $request->input('comment_id');
     // }
     // //編集画面にはidを受け取り、既にあるコメントを保持して表示させたいがエラーがでるのでコメントアウト
-    
+
     // // if($request ->isMethod('post')){
     // //        $id=$request->id;
     // //        $data=[
@@ -109,7 +109,7 @@ class NormalDbController extends Controller
     // {
     // // 削除画面へリダイレクトまで
     //     $commentId = $request->input('comment_id');
-    
+
     // }
 
     // public function editComplete(Request $request)
@@ -184,48 +184,52 @@ class NormalDbController extends Controller
     // }
 
 
-// public function showBookDetail(Request $req){
-//     // POSTの場合はinputから取得
-//     if ($request->isMethod('post')) {
-//         $id = $req->id;
-//         $data = [
-//             'bookDetail' => Book::find($id)
-//         ];
-//         return view('normal.index',$data);
-//     }else{
-//         redirect('/');
-//     }
-//     //public function showBookDetail()
-//     //{
-//     // $book = Book::findOrFail(1); // id=1 の本
-//     // return view('bookDetail', ['book' => $book]);
-//     //}
+    // public function showBookDetail(Request $req){
+    //     // POSTの場合はinputから取得
+    //     if ($request->isMethod('post')) {
+    //         $id = $req->id;
+    //         $data = [
+    //             'bookDetail' => Book::find($id)
+    //         ];
+    //         return view('normal.index',$data);
+    //     }else{
+    //         redirect('/');
+    //     }
+    //     //public function showBookDetail()
+    //     //{
+    //     // $book = Book::findOrFail(1); // id=1 の本
+    //     // return view('bookDetail', ['book' => $book]);
+    //     //}
 
-//     $book = Book::findOrFail($id);
-//     return view('normal.bookDetail', compact('book'));
-// }
+    //     $book = Book::findOrFail($id);
+    //     return view('normal.bookDetail', compact('book'));
+    // }
 
 
 
-    
 
-/* ☆☆☆☆☆☆☆☆☆☆ 松井編集 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
-   // 全件表示用
-    public function allshow(){
+
+    /* ☆☆☆☆☆☆☆☆☆☆ 松井編集 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
+    // 全件表示用
+    public function allshow()
+    {
         $data = [
             'books' => Book::all()
         ]; // book_db.books テーブルから全件取得
         return view('normal.index3', $data);
     }
 
-/* ☆☆☆☆☆☆☆☆☆☆ 松井編集 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
-//岩本編集　上記の松井さんのdatailshowをコメントアウトし、下記を追加
-    public function detailshow($id){
+    /* ☆☆☆☆☆☆☆☆☆☆ 松井編集 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
+    //岩本編集　上記の松井さんのdatailshowをコメントアウトし、下記を追加
+    public function detailshow($id)
+    {
         $data = [
-            'book' => Book::findOrFail($id),// IDで1冊取得（存在しない場合は404）
-            'comments' => Comment::where('book_id', $id)->get()
-        ]; 
+            'book' => Book::findOrFail($id), // IDで1冊取得（存在しない場合は404）
+            'comments' => Comment::where('book_id', $id)->get(),
+            // 平均算出
+            'average' => Comment::where('book_id', $id)->avg('evaluation')
+        ];
+
         return view('normal.bookDetail', $data);
     }
 }
-        
