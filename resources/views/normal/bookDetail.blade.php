@@ -2,31 +2,10 @@
 @section('title','コメント、おすすめ度入力画面')
 @section('main')
 
-<link rel="stylesheet" href="css/sumple.css">
-<script>
-    function toggleModal(show = true) {
-        const modal = document.getElementById("simpleModal");
-        modal.style.display = show ? "flex" : "none";
-    }
-</script>
-<style>
-    .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-    }
+<link rel="stylesheet" href="{{ asset('css/sumple.css') }}">
 
-    .modal-content {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        width: 800px;
-    }
-</style>
+<!-- 以下body替わりのタグ -->
+<div class="detailBody">
 
 <div class="book-display">
     <!-- 選択された本の表示 -->
@@ -44,21 +23,8 @@
         <div id="book_etcinfo">
             著者： {{ $book->author }}<br>
             出版日： {{ $book->pub_date }}<br>
-            <button onclick="toggleModal(true)">本の説明を見る</button>
         </div>
 
-    </div>
-</div>
-
-<div id="simpleModal" class="modal">
-    <div class="modal-content">
-        <h2>本の説明</h2>
-        @if(!empty($book->content))
-            <p>{{ $book->content }}</p>
-        @else
-            <p>この本にはまだ説明が登録されていません。</p>
-        @endif
-        <button onclick="toggleModal(false)">閉じる</button>
     </div>
 </div>
 
@@ -66,22 +32,22 @@
 <form action="{{ route('commentAdd') }}" method="post">
     @csrf
     <!-- おすすめ度選択画面 -->
-    おすすめ度：
     <div class="review">
+    <div id="recommend-text">おすすめ度</div>
         <div class="stars">
             <span>
-                <input id="review01" type="radio" name="review" value="1" required><label for="review01">★</label>
-                <input id="review02" type="radio" name="review" value="2"><label for="review02">★</label>
+                <input id="review01" type="radio" name="review" value="5" required><label for="review01">★</label>
+                <input id="review02" type="radio" name="review" value="4"><label for="review02">★</label>
                 <input id="review03" type="radio" name="review" value="3"><label for="review03">★</label>
-                <input id="review04" type="radio" name="review" value="4"><label for="review04">★</label>
-                <input id="review05" type="radio" name="review" value="5"><label for="review05">★</label>
+                <input id="review04" type="radio" name="review" value="2"><label for="review04">★</label>
+                <input id="review05" type="radio" name="review" value="1"><label for="review05">★</label>
             </span>
         </div>
     </div>
 
     <!-- コメント入力欄 -->
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">コメント入力</label>
+        <label for="exampleFormControlTextarea1" class="form-label">コメント</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
     </div>
 
@@ -89,7 +55,7 @@
 
     <!-- 投稿ボタン -->
     <div id="my_comment_post">
-        <input type="submit" value="投稿" class="btn btn-primary">
+        <input type="submit" value="投稿" id="post_btn">
     </div>
 </form>
 
@@ -100,34 +66,33 @@
     @foreach ($comments as $comment)
     <div class="com_recommend_from">
         <h2 id="emp_name" name="emp_name">{{ $comment->user->emp_name }}</h2>
-        <h2 id="other_star" name="evaluation">{{ $comment->evaluation }}</h2><br>
+        <h2 id="other_star" name="evaluation">☆{{ $comment->evaluation }}</h2>
     </div>
+    <hr>
     <div name="comment" class="comment_content">
         {{ $comment->comment }}
     </div>
     <!-- 編集・削除ボタン（自分のコメントだけ表示したいなら条件追加） -->
     @if (Auth::id() === $comment->user_id)
-    <div class="edit_del_btn" style="display: flex; gap: 10px;">
+    <div class="edit_del_btn">
         <form action="{{ route('commentEdit') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" value="編集" class="btn btn-warning">
+            <input type="submit" value="編集" class="edit_btn">
         </form>
-
         <form action="{{ route('commentDelete') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" value="削除" class="btn btn-danger">
+            <input type="submit" value="削除" class="del_btn">
         </form>
     </div>
     @endif
 </div>
 @endforeach
 </div>
-@endsection
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
 
-</html>
+<!-- 以下body替わりのタグ -->
+</div>
+@endsection

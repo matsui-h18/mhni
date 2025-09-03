@@ -45,32 +45,29 @@ body {
 
 }
 
-/* 新規登録ボタンの範囲 */
+/* 新規登録ボタンの範囲*/
 #new_btn {
-  margin-top: 50px; /* 上に余白を追加 */
+  margin-top: 50px; /* 上に余白を追加*/
   margin-bottom: 50px;
   display: flex;
-  justify-content: center; /* 横方向の中央寄せ */
+  justify-content: center; /* 横方向の中央寄せ*/
 }
 
 /* 新規登録ボタン */
 .new-book-btn {
-  font-size: 50px;       /* 文字サイズを大きく */
-  padding: 12px 24px;    /* 上下・左右の余白を広く */
-  width: 400px;          /* ボタンの横幅を指定（任意） */
-  height: 100px;          /* ボタンの高さを指定（任意） */
+  font-size: 50px;       /* 文字サイズを大きく*/
+  padding: 12px 24px;    /* 上下・左右の余白を広く*/
+  width: 300px;          /* ボタンの横幅を指定（任意）*/
+  height: 100px;          /* ボタンの高さを指定（任意）*/
   margin-top: 40px;      /* 上に余白 */
   margin-bottom: 40px;
-  border: solid white;
-  background-color: #afeeee;
-  transition-duration: 0.3s;
 }
 
-/* 新規登録ボタンにホバーした時 */
+/* 新規登録ボタンにホバーした時
 .new-book-btn:hover{
   background-color: #00ced1;
   color:white;
-}
+} */
 
 /* 本の画像の表示スタイル */
 .image-display {
@@ -86,24 +83,19 @@ body {
 /* 編集、削除ボタン */
 .edit-btn,
 .del-btn{
-    font-size: 20px;       /* 文字サイズを大きく */
-    padding: 12px 24px;    /* 上下・左右の余白を広く */
-    width: 100px;          /* ボタンの横幅を指定（任意） */
-    height: 60px;          /* ボタンの高さを指定（任意） */
-    background-color:#D0EAF7;
-    color:black;
-    margin: 10px; /* 外側の余白 */
-    border: solid white;
-    background-color: #afeeee;
-    transition-duration: 0.3s;
+    font-size: 20px;       /* 文字サイズを大きく*/
+    padding: 12px 24px;    /* 上下・左右の余白を広く*/
+    width: 100px;          /* ボタンの横幅を指定（任意)*/
+    height: 60px;          /* ボタンの高さを指定（任意）*/
+    margin: 10px; /* 外側の余白*/
 }
 
 /* 編集、削除ボタンにホバーした時 */
-.edit-btn:hover,
+/* .edit-btn:hover,
 .del-btn:hover{
   background-color: #00ced1;
   color:white;
-}
+} */
 
 .book-info > div {
   display: flex;
@@ -129,4 +121,5 @@ body {
 }
 a {
   text-decoration: none;
+  color:black;
 }
