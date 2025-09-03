@@ -3,6 +3,7 @@
 @section('main')
 
 <link rel="stylesheet" href="{{ asset('css/sumple.css') }}">
+<link rel="stylesheet" href="{{ asset('css/mordal.css') }}">
 
 <!-- 以下body替わりのタグ -->
 <div class="detailBody">
@@ -45,6 +46,24 @@
         </div>
     </div>
 
+    <!-- 説明ボタン -->
+<button onclick="openModal()">本の説明を見る</button>
+
+<!-- モーダル本体 -->
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h1>本の内容</h1>
+        <br>
+        @if(empty($book->content))
+        <p>本の説明はありません</p>
+        @else
+        <p>{{ $book->content }}</p>
+        @endif
+    </div>
+</div>
+
+
     <!-- コメント入力欄 -->
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">コメント</label>
@@ -62,6 +81,14 @@
 
 {{-- 岩本　データベースから他社員　全件引用して表示 --}}
 <!-- 他社員のコメント表示 -->
+<div>
+    <h1>投稿されたコメント</h1>
+</div>
+@if($comments->isempty())
+<div class="no_comment">
+    <h3>まだコメントがありません</h3>
+</div>
+@else
 <div class="all_comment">
     @foreach ($comments as $comment)
     <div class="com_recommend_from">
@@ -91,8 +118,18 @@
     @endif
 </div>
 @endforeach
+@endif
 </div>
 
 <!-- 以下body替わりのタグ -->
 </div>
+<script>
+function openModal() {
+    document.getElementById('bookModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('bookModal').style.display = 'none';
+}
+</script>
 @endsection

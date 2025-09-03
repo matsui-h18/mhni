@@ -65,6 +65,8 @@ class BooksearchContoller extends Controller
             'image' => $request->image,
         ]);
         // ここを完了画面につなげる
-        return redirect()->route('/isbn')->with('message', '書籍を登録しました');
+        return view('admin.newBookComplete', [
+            'message' => '書籍を登録しました'
+        ]);
     }
 }
