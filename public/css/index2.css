@@ -136,3 +136,6 @@ a {
   transition: background-color 0.3s ease; /* なめらかに変化させる */
 }
 
+.book-text {
+  color: black;
+}
