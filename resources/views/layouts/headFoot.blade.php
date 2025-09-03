@@ -5,78 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-
-        /* 中身用のcss */
-        .center{
-            height:200px;
-            margin: 0 auto;
-            font-family:  'メイリオ','arial black';
-            background-color:#f5f5f5;
-            display:block;
-        }
-
-        /* ヘッダー：「ログアウト」の文字サイズ */
-        .nav-link{
-            text-align: right;
-            font-size: 25px;
-            margin-right:200px;
-            margin-top:-100px;
-        }
-
-        /* BookMHNIのロゴ */
-        #logo{
-            padding-top: 40px;
-            font-size:50px;
-            text-align: center;
-            font-family: "FuturaBold"; /* フォント変更する場合ここ */
-        }
-
-        /* BookMHNIのロゴ下の「書籍管理システム」 */
-        #sub_logo{
-            margin-bottom:30px;
-            font-size:25px;
-            text-align: center;
-            font-family:  serif,'arial black'; /* フォント変更する場合ここ */
-        }
-
-        a:hover{
-          background-color:#00ced1;
-        }
-
-        #header{
-            background-color:#f5f5f5;
-        }
-        #footer{
-          background-color: black; /* フッターの背景 */
-          color:white; /* 文字色 */
-          height: 100px;
-          display: flex; /* Flexboxを有効にする */
-          justify-content: center; /* 横方向の中央揃え */
-          align-items: center; /* 縦方向の中央揃え */
-          text-align: center;
-          margin-top:50px;
-          margin-bottom:0px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/headfoot.css') }}">
 </head>
 <body>
 
 <header>
-  <div class="center">
-        <div id="logo">BookMHNI</div>
-        <div id="sub_logo">－書籍管理システム－</div>
-        <a class="nav-link" href="#">Logout</a>
-  @section('main')
-  @show
+  <div class="header-container">
+    <div class="logout-area">
+      <a class="logout-text" href="#">Logout</a>
+    </div>
+    <div class="logo-area">
+      <img src="/img/logo.png" alt="" id="logoImg"><br>
+      書籍管理システム
+    </div>
   </div>
 </header>
 
-  <div id="footer">
+  @section('main')
+  @show
+
+<footer>
+  <div id="help">
     お困りごとがありましたら、経理部（内線8番）まで
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
