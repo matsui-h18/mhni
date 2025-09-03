@@ -118,8 +118,16 @@ body {
 .book-table a {
   text-decoration: none; /* 下線を消す */
            /* 親要素の文字色を引き継ぐ（必要なら） */
+   color: black;         
 }
 a {
   text-decoration: none;
-  color:black;
+}
+.book-table:hover {
+  background-color: #e0ffff; /* 薄い水色に変更（好みに応じて調整OK） */
+  transition: background-color 0.3s ease; /* なめらかに変化させる */
+}
+
+.book-text {
+  color: black;
 }

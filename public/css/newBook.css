@@ -44,3 +44,12 @@ h1 {
     height: 50px;
     text-align: center;
 }
+.new-book-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin: 0; /* 横並びにするため margin をリセット */
+}
+
