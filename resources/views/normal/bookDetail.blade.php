@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/sumple.css') }}">
 <link rel="stylesheet" href="{{ asset('css/mordal.css') }}">
 
+
 <!-- 以下body替わりのタグ -->
 <div class="detailBody">
 
@@ -24,13 +25,21 @@
         <div id="book_etcinfo">
             著者： {{ $book->author }}<br>
             出版日： {{ $book->pub_date }}<br>
+            @if($average === null || $average == 0)
+            平均評価： まだ評価はありません
+            @else
+            平均評価： {{ number_format($average, 1) }}
+            @endif
+            <br>
+            <!-- 説明ボタン -->
+<button onclick="openModal()">本の説明を見る</button>
         </div>
 
     </div>
 </div>
 
 <!-- 入力画面 -->
-<form action="{{ route('commentAdd') }}" method="post">
+<form action="{{ route('commentAdd') }}" method="post" id="comment_form">
     @csrf
     <!-- おすすめ度選択画面 -->
     <div class="review">
@@ -46,8 +55,7 @@
         </div>
     </div>
 
-    <!-- 説明ボタン -->
-<button onclick="openModal()">本の説明を見る</button>
+
 
 <!-- モーダル本体 -->
 <div id="bookModal" class="modal">
@@ -81,7 +89,7 @@
 
 {{-- 岩本　データベースから他社員　全件引用して表示 --}}
 <!-- 他社員のコメント表示 -->
-<div>
+<div class="all_other_comment">
     <h1>投稿されたコメント</h1>
 </div>
 @if($comments->isempty())
@@ -102,22 +110,22 @@
     <!-- 編集・削除ボタン（自分のコメントだけ表示したいなら条件追加） -->
     @if (Auth::id() === $comment->user_id)
     <div class="edit_del_btn">
-        <form action="{{ route('commentEdit') }}" method="post">
+        <form action="{{ route('commentEdit') }}" method="post" class="edit_form">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" class="btn btn-primary" value="編集" class="edit_btn">
+            <input type="submit" class="btn btn-primary edit_btn" value="編集">
         </form>
         <form action="{{ route('commentDelete') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" class="btn btn-primary" value="削除" class="del_btn">
+            <input type="submit" class="btn btn-primary del_btn" value="削除">
         </form>
     </div>
     @endif
-</div>
 @endforeach
+</div>
 @endif
 </div>
 
