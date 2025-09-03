@@ -74,7 +74,7 @@
 
     <!-- 投稿ボタン -->
     <div id="my_comment_post">
-        <input type="submit" value="投稿" id="post_btn">
+        <input type="submit" class="btn btn-primary"value="投稿" id="post_btn">
     </div>
 </form>
 
@@ -106,13 +106,13 @@
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" value="編集" class="edit_btn">
+            <input type="submit" class="btn btn-primary" value="編集" class="edit_btn">
         </form>
         <form action="{{ route('commentDelete') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <input type="submit" value="削除" class="del_btn">
+            <input type="submit" class="btn btn-primary" value="削除" class="del_btn">
         </form>
     </div>
     @endif
