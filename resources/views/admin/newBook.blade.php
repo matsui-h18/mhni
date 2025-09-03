@@ -28,14 +28,16 @@
                 <input type="number" id="isbn" name="isbn" required>
             </p>
         </div>
+        <div class="isbn-link">
+        <a href="{{ route ('isbn') }}">ISBN登録</a>
+        </div>
+
         <div class="RegistrationandReturn">
         <input type="submit" id="button" value="登録" class="btn btn-primary new-book-btn">
     </form>
 
     <a href="{{ route('support') }}" class="btn btn-secondary new-book-btn">戻る</a>
     </div>
-    <div class="isbn-link">
-    <a href="{{ route ('isbn') }}">ISBN登録</a>
-    </div>
+
 
 @endsection

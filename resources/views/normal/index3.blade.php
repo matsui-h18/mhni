@@ -5,8 +5,8 @@
 <!-- 上記CSSはadmin/index2と同じなため注意 -->
 
 @foreach ($books as $book)
-<a href="{{ route('bookDetail', ['id' => $book->id])}}">
-  <div class="book-table slide skew">
+<div class="book-table slide skew">
+  <a href="{{ route('bookDetail', ['id' => $book->id])}}">
     <div class="book-info">
         @if ($book->image)
         <img src="{{ $book->image }}" alt="本の画像" class="image-display">

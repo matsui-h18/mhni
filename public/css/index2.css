@@ -13,7 +13,7 @@ body {
   width: 1200px; /* 幅を固定 */
   /* border: solid 1px gray; 黒い枠線 */
   /* border-radius: 20px; */
-  margin: 20px auto; /* 上下に余白、中央寄せ */
+  margin: 30px auto; /* 上下に余白、中央寄せ */
   padding: 20px; /* 内側の余白 */
 }
 
@@ -96,10 +96,6 @@ body {
   color:black;
 }
 
-.a_tag{
-  
-}
-
 .book-info > div {
   display: flex;
   flex-direction: column;
@@ -155,6 +151,7 @@ body {
 
 .book-table.slide:hover a {
   color: #fff;
+  text-decoration: none; /* ← ホバー時も下線を消す */
 }
 
 .book-table.slide:hover .bookName,
