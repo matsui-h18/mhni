@@ -31,3 +31,52 @@
     margin-bottom: 30px;
 }
 
+.info {
+    margin: 60px auto 100px auto;
+}
+
+.info h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.mes {
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    gap: 30px;                /* ボタン間のスペース */
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.form {
+    max-width: 600px;
+    margin: 60px auto 100px auto; /* 上下と横中央揃え */
+    padding: 20px;
+}
+
+.form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.new-book-btn {
+    display: block;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
