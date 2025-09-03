@@ -57,9 +57,11 @@ Route::post('admin/bookEditComplete',[AccController::class,'update']);
 
 
 // 中島
+// 経理用最初の画面
 Route::get('/admin/index2', [AccController::class, 'allshow'])
 ->middleware(['auth'])->name('support');
 
+// 一般ユーザ用最初の画面
 Route::get('/normal/index', [NormalDbController::class, 'allshow'])
 ->middleware(['auth'])->name('dashboard');
 
@@ -80,6 +82,9 @@ Route::get('/bookEdit/{id}', [LibraryController::class, 'edit'])
 
 Route::post('/bookUpdate', [LibraryController::class, 'update'])
 ->name('bookUpdate');
+
+Route::get('/books/search', [LibraryController::class, 'research'])->name('bookSearch');
+
 
 // コメント
 Route::post('/normal/deleteComplete',[LibraryController::class,'deleteComment'])
@@ -115,9 +120,9 @@ Route::get('/normal/index3',[NormalDbController::class,'allshow']);
 
 
 //一覧から詳細画面へ移動する用
-Route::get('/normal/bookDetailMove', function () {
-    return view('normal.bookDetail');
-})->name('bookDetail');
+// Route::get('/normal/bookDetailMove', function () {
+//     return view('normal.bookDetail');
+// })->name('bookDetail');
 
 
 //詳細ページをidに従って表示させる

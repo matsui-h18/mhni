@@ -33,11 +33,12 @@ h1 {
     justify-content: center; /* 中央揃え */
     gap: 30px;                /* ボタン間のスペース */
     margin-top: 40px;
+    margin-bottom: 100px;
 }
 
 .new-book-btn {
     display: block;
-    margin: 40px auto 0 auto; 
+    margin: 40px auto 0 auto;
     font-size: 18px;
     padding: 10px 20px;
     width: 200px;
@@ -52,4 +53,27 @@ h1 {
     text-align: center;
     margin: 0; /* 横並びにするため margin をリセット */
 }
+.RegistrationandReturn {
+  display: flex;
+  flex-direction: row; /* 横並びにする */
+  justify-content: center; /* 中央寄せ（任意） */
+  gap: 30px; /* ボタンの間隔を広げる */
+  margin-top: 30px;
+}
 
+.isbn-link {
+  text-align: center; /* 中のインライン要素を中央寄せ */
+  margin-top: 10px;
+}
+
+.isbn-link a {
+  display: inline-block; /* text-align: center が効くようにする */
+}
+
+/* textarea入力フォーム用 */
+.info textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}

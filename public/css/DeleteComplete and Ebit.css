@@ -53,3 +53,11 @@ h1 {
     text-align: center;
 }
 
+p {
+    
+ font-size: 54px;
+  width: 600px;              /* ← 横幅を指定して中央配置の基準にする */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;      /* テキストを中央揃えに */
+}

@@ -2,13 +2,14 @@
 @section('title','書籍新規登録')
 @section('main')
 <link rel="stylesheet" href="{{ asset('css/index2.css') }}">
+<!-- 上記CSSはadmin/index3と同じなため注意 -->
 
 <div id="new_btn">
     <a href="{{ route('newBook') }}"><button class="btn btn-primary new-book-btn">新規登録</button></a>
 </div>
 
 @foreach ($books as $book)
-<div class="book-table">
+<div class="book-table slide skew">
     <!-- 左側：画像とテキスト -->
     <a href="{{ route('bookDetail', ['id' => $book->id])}}">
         <!--<div class="book-table">-->
@@ -19,7 +20,7 @@
                 <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
                 @endif
                 <div class="">
-                    <h1>{{ $book->book_name }}</h1>
+                    <h1 class="bookName">{{ $book->book_name }}</h1>
                     {{ $book->author }}<br>
                     {{ $book->pub_date }}<br>
                 </div>
@@ -30,7 +31,7 @@
     <!-- 右側：ボタン -->
     <div class="button-area">
         <a href="{{ route('bookEdit', ['id' => $book->id]) }}"><button class="btn btn-primary edit-btn">編集</button></a>
-        <a href="{{ route('bookDelete', ['id' => $book->id]) }}"><button class="btn btn-primary del-btn">削除</button>
+        <a href="{{ route('bookDelete', ['id' => $book->id]) }}"><button class="btn btn-primary del-btn">削除</button></a>
     </div>
 </div>
 @endforeach
