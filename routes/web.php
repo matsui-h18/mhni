@@ -57,9 +57,11 @@ Route::post('admin/bookEditComplete',[AccController::class,'update']);
 
 
 // 中島
+// 経理用最初の画面
 Route::get('/admin/index2', [AccController::class, 'allshow'])
 ->middleware(['auth'])->name('support');
 
+// 一般ユーザ用最初の画面
 Route::get('/normal/index', [NormalDbController::class, 'allshow'])
 ->middleware(['auth'])->name('dashboard');
 
@@ -81,9 +83,7 @@ Route::get('/bookEdit/{id}', [LibraryController::class, 'edit'])
 Route::post('/bookUpdate', [LibraryController::class, 'update'])
 ->name('bookUpdate');
 
-Route::get('/books/search', [LibraryController::class, 'search'])->name('bookSearch');
-Route::get('/books', [LibraryController::class, 'index'])->name('bookIndex1');
-Route::get('/books', [LibraryController::class, 'index'])->name('bookIndex2');
+Route::get('/books/search', [LibraryController::class, 'research'])->name('bookSearch');
 
 
 // コメント
