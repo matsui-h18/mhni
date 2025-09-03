@@ -115,9 +115,9 @@ Route::get('/normal/index3',[NormalDbController::class,'allshow']);
 
 
 //一覧から詳細画面へ移動する用
-Route::get('/normal/bookDetailMove', function () {
-    return view('normal.bookDetail');
-})->name('bookDetail');
+// Route::get('/normal/bookDetailMove', function () {
+//     return view('normal.bookDetail');
+// })->name('bookDetail');
 
 
 //詳細ページをidに従って表示させる
