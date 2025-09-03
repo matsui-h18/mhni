@@ -3,6 +3,30 @@
 @section('main')
 
 <link rel="stylesheet" href="css/sumple.css">
+<script>
+    function toggleModal(show = true) {
+        const modal = document.getElementById("simpleModal");
+        modal.style.display = show ? "flex" : "none";
+    }
+</script>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        width: 800px;
+    }
+</style>
 
 <div class="book-display">
     <!-- 選択された本の表示 -->
@@ -20,8 +44,21 @@
         <div id="book_etcinfo">
             著者： {{ $book->author }}<br>
             出版日： {{ $book->pub_date }}<br>
+            <button onclick="toggleModal(true)">本の説明を見る</button>
         </div>
 
+    </div>
+</div>
+
+<div id="simpleModal" class="modal">
+    <div class="modal-content">
+        <h2>本の説明</h2>
+        @if(!empty($book->content))
+            <p>{{ $book->content }}</p>
+        @else
+            <p>この本にはまだ説明が登録されていません。</p>
+        @endif
+        <button onclick="toggleModal(false)">閉じる</button>
     </div>
 </div>
 
@@ -74,6 +111,7 @@
         <form action="{{ route('commentEdit') }}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+            <input type="hidden" name="book_id" value="{{ $book->id }}">
             <input type="submit" value="編集" class="btn btn-warning">
         </form>
 
