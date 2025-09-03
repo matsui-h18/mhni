@@ -32,7 +32,7 @@
             @endif
             <br>
             <!-- 説明ボタン -->
-<button onclick="openModal()">本の説明を見る</button>
+<button onclick="openModal()" class="btn btn-primary detail">本の説明を見る</button>
         </div>
 
     </div>
@@ -82,7 +82,7 @@
 
     <!-- 投稿ボタン -->
     <div id="my_comment_post">
-        <input type="submit" class="btn btn-primary"value="投稿" id="post_btn">
+        <input type="submit" class="btn btn-primary" value="投稿" id="post_btn">
     </div>
 </form>
 
@@ -99,6 +99,7 @@
 @else
 <div class="all_comment">
     @foreach ($comments as $comment)
+    <div class="back-color">
     <div class="com_recommend_from">
         <h2 id="emp_name" name="emp_name">{{ $comment->user->emp_name }}</h2>
         <h2 id="other_star" name="evaluation">☆{{ $comment->evaluation }}</h2>
@@ -124,6 +125,7 @@
         </form>
     </div>
     @endif
+    </div>
 @endforeach
 </div>
 @endif

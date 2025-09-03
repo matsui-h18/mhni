@@ -42,6 +42,10 @@ textarea.form-control {
   display: block;
 }
 
+.btn.btn-primary.detail{
+  margin-top: 10px;
+}
+
 
 /* 文字「おすすめ度」と星 */
 .review{
@@ -65,23 +69,24 @@ textarea.form-control {
 /* コメント表示 */
 .all_comment {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 30px auto;
   width: 100%;
- 
 }
+
 .com_recommend_from {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 20px auto;
   width: 100%;
-   background-color: aquamarine;
-  
-  
 }
+
+.back-color{
+  box-shadow: 0px 0px 10px 1px;
+}
+
 .comment_content {
   max-width: 800px;
   margin: 20px auto;
   width: 100%;
- 
 }
 /*.edit_del_btn {
   max-width: 800px;
@@ -164,10 +169,11 @@ textarea.form-control {
 .edit_btn,
 .del_btn {
   font-size: 18px;
-  padding: 20px 36px;
+  padding: 10px 20px;
   border-radius: 8px;
   height: 100%; /* ← 高さを揃えるために追加（必要なら） */
   box-sizing: border-box; /* ← パディング込みでサイズ調整 */
+  margin: 10px 10px 10px auto;
 }
 
 
