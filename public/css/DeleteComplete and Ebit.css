@@ -8,10 +8,17 @@ form {
 
 /* タイトルは中央揃えのままでOK */
 h1 {
+    margin:30px
+}
+
+#center{
     text-align: center;
     margin-top: 200px;
     margin-bottom: 200px;
+}
 
+#moji{
+    font-size: 20px;
 }
 
 /* 入力欄のラベルとフィールドを左揃えにする */
