@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title>書籍一覧</title>
-
-    <link rel="stylesheet" href="css/index.css">
-</head>
-
-<body>
-
+@extends('layouts.headFoot')
+@section('title','書籍一覧')
+@section('main')
     <h1 class="page-title">書籍一覧</h1>
     @foreach($records as $record)
     <div class="book-list">
@@ -56,6 +47,4 @@
                 </div>
             </div>
         </div> -->
-</body>
-
-</html>
+@endsection

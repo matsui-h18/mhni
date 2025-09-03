@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.headFoot')
+@section('title','コメントの削除')
+@section('main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>コメントの削除</title>
-</head>
-
-<body>
     <h1>コメント削除</h1>
     <p>本当に削除しますか？</p>
 
@@ -31,6 +24,5 @@
         <a href="{{ route('bookDetail', ['id' => $book_id]) }}" class="btn btn-secondary">戻る</a>
 
     </div>
-</body>
+    @endsection
 
-</html>
