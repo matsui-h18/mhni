@@ -2,6 +2,7 @@
 @section('title','書籍新規登録')
 @section('main')
 <link rel="stylesheet" href="{{ asset('css/index2.css') }}">
+<!-- 上記CSSはadmin/index3と同じなため注意 -->
 
 <div id="new_btn">
     <a href="{{ route('newBook') }}"><button class="btn btn-primary new-book-btn">新規登録</button></a>

@@ -6,7 +6,7 @@
 
 @foreach ($books as $book)
 <a href="{{ route('bookDetail', ['id' => $book->id])}}">
-  <div class="book-table">
+  <div class="book-table slide skew">
     <div class="book-info">
         @if ($book->image)
         <img src="{{ $book->image }}" alt="本の画像" class="image-display">
@@ -14,7 +14,7 @@
         <img src="{{ asset('img/book.jpg') }}" alt="本の画像" class="image-display">
         @endif
       <div class="book-text">
-        <h1>{{ $book->book_name }}</h1>
+        <h1 class="bookName">{{ $book->book_name }}</h1>
         {{ $book->author }}<br>
         {{ $book->pub_date }}<br>
       </div>
