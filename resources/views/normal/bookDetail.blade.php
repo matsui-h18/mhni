@@ -109,7 +109,7 @@
         {{ $comment->comment }}
     </div>
     <!-- 編集・削除ボタン（自分のコメントだけ表示したいなら条件追加） -->
-    @if (Auth::id() === $comment->user_id)
+    @if (Auth::id() === $comment->user->emp_id)
     <div class="edit_del_btn">
         <form action="{{ route('commentEdit') }}" method="post" class="edit_form">
             @csrf

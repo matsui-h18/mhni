@@ -30,6 +30,8 @@ class LibraryController extends Controller
         return view('normal.bookDetail', [
             'book' => $book,
             'comments' => $comments,
+            // 平均算出
+            'average' => Comment::where('book_id', $id)->avg('evaluation')
         ]);
     }
 
@@ -95,7 +97,8 @@ class LibraryController extends Controller
 
         $comment = new Comment();
         $comment->book_id = $book_id;
-        $comment->user_id = Auth::id();
+        $user = Auth::user();
+        $comment->user_id = $user->id;
         $comment->evaluation = $evaluation;
         $comment->comment = $comment_text;
         $comment->save();

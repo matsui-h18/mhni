@@ -31,11 +31,11 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
 
-        $redirectTo = $user->dep_id === 2 ? '/support' : '/general';
+        $redirectTo = route($user->dep_id === 2 ? 'support' : 'dashboard');
 
-        session(['after_login_url' => $redirectTo]);
+        $request->session()->put('after_login_url', $redirectTo);
 
-        return redirect()->route($user->dep_id === 2 ? 'support' : 'dashboard');
+        return redirect($redirectTo);
     }
 
     /**
