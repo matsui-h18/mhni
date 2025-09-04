@@ -15,23 +15,22 @@
     <header>
         <div class="header-container">
             <div class="logout-area">
-
-                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="text-align: right;">
-                    @csrf
-                </form>
-
                 <a href="#" class="logout-text"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
-
+                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                </form>
             </div>
-            <a href="{{ route('back.to.start') }}">
-                <div class="logo-area">
+
+            <div class="logo-area">
+                <a href="{{ route('back.to.start') }}">
                     <img src="/img/logo.png" alt="" id="logoImg"><br>
                     <span style="color: black;">書籍管理システム</span>
-                </div>
-            </a>
+                </a>
+            </div>
+
         </div>
     </header>
 
